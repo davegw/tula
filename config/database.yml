@@ -5,6 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
+  host: localhost
   database: tula_database_development
   pool: 5
   timeout: 5000
