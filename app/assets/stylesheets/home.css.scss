@@ -1,3 +1,21 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body, html {
+  background: black;
+  height: 100%;
+}
+.coming_soon_text {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  color: #BCBBBB;
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+  h1 {
+    font-size: 50px;
+    margin: 0 0 10px 0;
+  }
+  h2 {
+    font-size: 25px;
+    margin: 0;
+  }
+}

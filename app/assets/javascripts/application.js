@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+  $('h2').effect("pulsate", {times:2}, 10000, function() {
+    $('h1 span').animate({color: '#FFA500'}, 2500);;
+  });
+});
