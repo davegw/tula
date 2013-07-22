@@ -1,0 +1,48 @@
+!!! 5
+%html
+  / (xmlns:giftrocket="http://www.giftrocket.com/ns#")
+  / %head(prefix="og: http://ogp.me/ns# #{FB_APP_NAME}: http://ogp.me/ns/apps/#{FB_APP_NAME}#")
+  /   <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+  /   -# CSS + JS includes.
+  /   = render 'layouts/includes'
+
+  /   -# Meta tags
+  /   = render 'layouts/metas'
+
+  /   -# JS code to run.
+  /   = render 'layouts/head_scripts'
+
+  / -# The main point.
+  / = render 'layouts/body'
+
+  / -# Not too critical.
+  / = render 'layouts/scripts_afterload'
+  %head
+    %title
+      TULA Investment Group
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js'
+    = yield :javascript_includes
+    = csrf_meta_tags
+  %body
+
+  = yield
+
+
+
+
+/ <!DOCTYPE html>
+/ <html>
+/ <head>
+/   <title>Tula</title>
+/   <%= stylesheet_link_tag    "application", :media => "all" %>
+/   <%= javascript_include_tag "application" %>
+/   <%= csrf_meta_tags %>
+/ </head>
+/ <body>
+
+/ <%= yield %>
+
+/ </body>
+/ </html>
