@@ -37,7 +37,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    cssmin (1.0.3)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -45,14 +44,10 @@ GEM
       tilt
     hike (1.2.3)
     i18n (0.6.4)
-    jammit (0.6.6)
-      cssmin (>= 1.0.3)
-      jsmin (>= 1.0.1)
     journey (1.0.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jsmin (1.0.1)
     json (1.8.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -112,7 +107,6 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   haml
-  jammit
   jquery-rails
   pg
   rails (= 3.2.6)
