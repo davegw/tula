@@ -1,2 +1,0 @@
-
-(function($){$(function(){$('h1').effect("pulsate",{times:2},10000,function(){$('h1 span').animate({color:'#FFA500'},2500);;});});})(jQuery);#Place all the behaviors and hooks related to the matching controller here.#All this logic will automatically be available in application.js.#You can use CoffeeScript in this file:http:
