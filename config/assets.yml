@@ -1,0 +1,11 @@
+gzip_assets: off
+
+javascripts:
+  common:
+    - app/assets/javascripts/application.js
+    - app/assets/javascripts/home.js.coffee
+
+stylesheets:
+  common:
+    - app/assets/stylesheets/application.css
+    - app/assets/stylesheets/home.css.scss
