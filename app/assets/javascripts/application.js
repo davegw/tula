@@ -15,14 +15,9 @@
 //= require_tree .
 
 
-// jQuery wrapper.
-(function($) {
-
 
 $(function() {
   $('h2').effect("pulsate", {times:2}, 10000, function() {
     $('h1 span').animate({color: '#FFA500'}, 2500);;
   });
 });
-
-})(jQuery);
