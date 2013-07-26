@@ -17,7 +17,7 @@
 
 
 $(function() {
-  $('h2').effect("pulsate", {times:2}, 1000, function() {
+  $('h1').effect("pulsate", {times:2}, 1000, function() {
     $('h1 span').animate({color: '#FFA500'}, 2500);;
   });
 });
