@@ -15,9 +15,10 @@
 //= require_tree .
 
 
-
+// Pulse the coming soon text.
 $(function() {
-  $('h2').effect("pulsate", {times:2}, 10000, function() {
-    $('h1 span').animate({color: '#FFA500'}, 2500);;
+  $('#coming_soon h2').effect("pulsate", {times:2}, 10000, function() {
+    // Change the font color to orange.
+    $('#coming_soon h1 span').animate({color: '#FFA500'}, 2500);;
   });
 });
