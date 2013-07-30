@@ -1,0 +1,127 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+// CONTAINERS.
+html {
+  height: 101%;
+  // background-color: white;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#all_content {
+  min-width: 980px;
+  background-color: black;
+}
+
+#container {
+  margin: 0 auto;
+  width: 980px;
+}
+
+#main {
+  background-color: white;
+  min-height: 900px;
+  padding: 20px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+// NAVIGATION BAR.
+
+#header {
+  // Adjust or remove.
+  height: 112px;
+  padding-top: 28px;
+  color: #BCBBBB;
+  background-color: black;
+  h1 {
+    font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    margin: 0 0 10px 0;
+    font-size: 40px;
+  }
+  h1 span {
+    color: #FFA500;
+    font-size: 50px;
+    font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+  }
+  #nav_bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: gray;
+    ul {
+      margin: 0 auto;
+      width: 980px;
+      padding: 10px 0px 10px 0px;
+      // Eliminates the space between list items.
+      font-size: 0;
+      color: white;
+      li {
+        margin: 0;
+        padding: 5px 30px 5px 30px;
+        font-size: 20px;
+        text-align: center;
+        display: inline;
+        list-style-type: none;
+        border-left: 1px solid white;
+      }
+      li:hover {
+        color: #FFA500;
+      }
+      .selected {
+        color: #FFA500;
+      }
+      li:first-child {
+        border-left: none;
+        // padding-left: 0;
+      }
+    }
+  }
+  a,
+  a:visited {
+    color: inherit;
+  }
+}
+
+#home {
+  #header {
+    h1 span {
+      color: #BCBBBB;
+    }
+  }
+  p:first-child {
+    margin-top:0;
+  }
+}
+
+
+
+#contact {
+  p {
+    margin: 0;
+    font-size: 18px;
+  }
+}

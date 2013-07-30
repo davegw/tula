@@ -52,7 +52,9 @@ Tula::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'home#coming_soon'
 
-  match '/home' => 'home#index', :as => :home_url
+  match '/coming-soon' => 'home#coming_soon', :as => :coming_soon
+  match '/home' => 'home#index', :as => :home
+  match '/contact' => 'home#contact', :as => :contact
 
   # See how all your routes lay out with "rake routes"
 

@@ -22,3 +22,33 @@ $(function() {
     $('#coming_soon h1 span').animate({color: '#FFA500'}, 2500);;
   });
 });
+
+$(function() {
+  $('#home #header h1 span').animate({color: '#FFA500'}, 3000);;
+});
+
+// $(function() {
+//   $('#nav_bar li').mouseenter(function() {
+//     $(this).css('color', 'orange');
+//   })
+// });
+
+// $(function() {
+//   $('#nav_bar li').mouseleave(function() {
+//     $(this).css('color', 'inherit');
+//   })
+// });
+
+// $(function() {
+//   $('#nav_bar li').click(function() {
+//     $(this).addClass('selected');
+//   })
+// })
+
+// $(function() {
+// // var $links = $('#nav_bar li');
+//   $('#nav_bar li').click(function(){
+//      $('#nav_bar li').removeClass('selected');
+//      $(this).addClass('selected');
+//   });
+// });

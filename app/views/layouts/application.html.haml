@@ -26,8 +26,20 @@
     = yield :javascript_includes
     = csrf_meta_tags
   %body{:id => @body_id, :class => @body_class}
+    - if @comingsoon
+      = yield
+    - else
+      #all_content
+        #container
+          - unless @noheader
+            = render 'layouts/header'
+          #main
+            = yield
+        -# Keep footer out of container as background will repeat.
+        -# See above note about header. Same applies.
+        / = render 'layouts/footer'
 
-  = yield
+
 
 
 

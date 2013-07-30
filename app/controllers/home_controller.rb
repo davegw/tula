@@ -3,5 +3,11 @@ class HomeController < ApplicationController
   end
 
   def coming_soon
+    @noheader = true
+    @comingsoon = true
   end
+
+  def contact
+  end
+  
 end

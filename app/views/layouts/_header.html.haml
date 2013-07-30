@@ -1,0 +1,13 @@
+#header
+  %h1 
+    %span TULA
+    Investment Group
+  #nav_bar
+    %ul
+      %li 
+        = link_to 'Home', home_path, :class => "#{active_class('home')}"
+      %li About
+      %li Investment Prospectus
+      %li 
+        = link_to 'Contact', contact_path, :class => "#{active_class('contact')}"
+      %li Blog
