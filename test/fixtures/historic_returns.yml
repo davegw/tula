@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  year: 1
+  return: 9.99
+  fund: MyString
+
+two:
+  year: 1
+  return: 9.99
+  fund: MyString
