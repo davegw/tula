@@ -1,11 +1,12 @@
 #header
-  %h1 
-    %span TULA
-    Investment Group
+  = link_to root_path do
+    %h1 
+      %span TULA
+      Investment Group
   #nav_bar
     %ul
-      %li 
-        = link_to 'Home', home_path, :class => "#{active_class('home')}"
+      = link_to home_path, :class => "#{active_class('home')}" do
+        %li Home
       %li About
       %li Investment Prospectus
       %li 
