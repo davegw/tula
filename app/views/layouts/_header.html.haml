@@ -6,9 +6,10 @@
   #nav_bar
     %ul
       = link_to home_path, :class => "#{active_class('home')}" do
-        %li Home
+        %li#nav_home Home
       %li About
       %li Investment Prospectus
-      %li 
-        = link_to 'Contact', contact_path, :class => "#{active_class('contact')}"
+      = link_to contact_path, :class => "#{active_class('contact')}" do
+        %li#nav_contact Contact
       %li Blog
+
