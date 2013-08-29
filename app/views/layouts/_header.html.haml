@@ -7,7 +7,8 @@
     %ul
       = link_to home_path, :class => "#{active_class('home')}" do
         %li#nav_home Home
-      %li About
+      = link_to why_path, :class => "#{active_class('why')}" do
+        %li#nav_why Why TULA
       %li Investment Prospectus
       = link_to contact_path, :class => "#{active_class('contact')}" do
         %li#nav_contact Contact

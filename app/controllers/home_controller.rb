@@ -9,5 +9,8 @@ class HomeController < ApplicationController
 
   def contact
   end
+
+  def why
+  end
   
 end
