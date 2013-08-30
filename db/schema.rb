@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130828031018) do
+ActiveRecord::Schema.define(:version => 20130830082021) do
 
   create_table "historic_returns", :force => true do |t|
     t.integer  "year"
-    t.decimal  "return"
-    t.string   "fund"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.decimal  "tula_return"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.decimal  "sp500_return"
   end
 
 end
