@@ -58,7 +58,8 @@ $(function() {
   }
   var options = {
     datasetFill : true,
-    showLegend: true
+    showLegend: true,
+    bezierCurve : true
   };
   new Chart(document.getElementById("myChart").getContext("2d")).Line(lineChartData, options);
 });
