@@ -35,8 +35,9 @@ html, body {
 
 #main {
   background-color: white;
-  min-height: 900px;
+  min-height: 600px;
   padding: 20px;
+  overflow: auto;
 }
 
 p {
@@ -48,8 +49,6 @@ a {
   text-decoration: none;
 }
 
-
-// NAVIGATION BAR.
 
 #header {
   // Adjust or remove.
@@ -68,6 +67,7 @@ a {
     font-size: 50px;
     font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
   }
+  // NAVIGATION BAR.
   #nav_bar {
     position: absolute;
     left: 0;
@@ -99,13 +99,50 @@ a {
       }
       li#nav_home {
         border-left: none;
-        // padding-left: 0;
       }
     }
   }
   a,
   a:visited {
     color: inherit;
+  }
+}
+
+#footer {
+  padding: 20px 0 50px 0;
+  margin: 0 auto;
+  width: 755px;
+  #foot_bar {
+    margin: 0 auto;
+    ul {
+      margin: 0px;
+      padding: 0;
+      color: gray;
+      font-size: 0;
+      li {
+        list-style-type: none;
+        display: inline;
+        padding: 3px 40px 3px 40px;
+        border-left: 1px solid gray;
+        font-size: 16px;
+      }
+      li#foot_home {
+        border-left: none;
+      }
+    }
+  }
+  a,
+  a:visited {
+    color: inherit;
+  }
+  #foot_note {
+    margin-top: 30px;
+    color: gray;
+    text-align: center;
+    font-size: 14px;
+    a {
+      color: silver;
+    }
   }
 }
 
