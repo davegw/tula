@@ -12,5 +12,8 @@ class HomeController < ApplicationController
 
   def why
   end
+
+  def prospectus
+  end
   
 end

@@ -56,6 +56,7 @@ Tula::Application.routes.draw do
   match '/home' => 'home#index', :as => :home
   match '/contact' => 'home#contact', :as => :contact
   match '/why-tula' => 'home#why', :as => :why
+  match '/investment-prospectus' => 'home#prospectus', :as => :prospectus
 
   # See how all your routes lay out with "rake routes"
 
