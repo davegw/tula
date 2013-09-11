@@ -1,13 +1,22 @@
 - @body_id = 'contact'
 
 %p
-  %strong TULA Investment Group
+  %strong TULA Investment Group, LLC
   %br
-  2918 Holyrood Dr.
+  2918 Holyrood Drive
   %br
   Oakland, CA 94611
   %br 
-  Phone: 510-390-4774
+  Phone: (510) 390-4774
   %br
   Email: 
   = link_to 'darylwong@tulainvestmentgroup.com', 'mailto:darylwong@tulainvestmentgroup.com'
+
+%p{:style => "margin-top: 20px"}
+  %strong Connect with TULA:
+  %br
+  = link_to 'LinkedIn', 'http://linkedin.com', :target => 'blank'
+  %br
+  = link_to 'Facebook', 'http://facebook.com', :target => 'blank'
+
+= image_tag('tula_test.jpg', :style => "margin-top: 20px")
