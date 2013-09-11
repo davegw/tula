@@ -18,16 +18,16 @@
       %td 
         #{i.year}
       %td
-        #{(i.tula_return*100).to_i}%
+        #{(i.sp500_return*100).to_i}%
       %td 
-        %strong #{(i.sp500_return*100).to_i}%
+        #{(i.tula_return*100).to_i}%
   %tr
     %td
       #{r.count} Year Avg
     %td
-      #{(r.average(:tula_return)*100).round(1)}%
-    %td
       #{(r.average(:sp500_return)*100).round(1)}%
+    %td
+      #{(r.average(:tula_return)*100).round(1)}%
 
 %table.return.dollar
   %tr
@@ -47,8 +47,8 @@
       %td
         #{i.year}
       %td
-        - a = ((i.tula_return+1)*a)
+        - a = ((i.sp500_return+1)*a)
         #{number_to_currency(a, :unit => "$", :precision => 0)}
       %td 
-        - b = ((i.sp500_return+1)*b)
+        - b = ((i.tula_return+1)*b)
         #{number_to_currency(b, :unit => "$", :precision => 0)}
