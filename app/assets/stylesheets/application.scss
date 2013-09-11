@@ -158,12 +158,23 @@ a {
 }
 
 #contact {
-  p {
+  .contact_header {
     margin: 0;
+    font-size: 22px;
+  }
+  #contact_connect .contact_header {
+    margin-bottom: 5px;
+  }
+  .contact_details {
     font-size: 18px;
+    line-height: 22px;
+  }
+  #contact_info {
+    margin-bottom: 30px;
   }
   img {
-    width: 500px;
+    margin-right:10px;
+    height: 30px;
   }
 }
 
