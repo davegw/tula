@@ -120,7 +120,6 @@ a {
 #footer {
   padding: 20px 0 50px 0;
   margin: 0 auto;
-  width: 980px;
   #foot_bar {
     margin: 0 auto;
     // Use this to center the following list items.
@@ -128,6 +127,7 @@ a {
     ul {
       margin: 0px;
       padding: 0;
+      width: 980px;
       color: gray;
       font-size: 0;
       li {
