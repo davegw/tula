@@ -7,13 +7,16 @@ class HomeController < ApplicationController
     @comingsoon = true
   end
 
-  def contact
+  def about
   end
 
   def why
   end
 
   def prospectus
+  end
+
+  def contact
   end
   
 end
