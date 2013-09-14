@@ -12,6 +12,9 @@
  *= require_tree .
  */
 
+ // COLORS.
+ $orange: #FFA500;
+
 // CONTAINERS.
 html {
   height: 101%;
@@ -65,6 +68,7 @@ a {
     margin: 0 0 10px 0;
     font-size: 40px;
     display: inline-block;
+    padding-left: 10px;
   }
   h1 span {
     color: #FFA500;
@@ -73,7 +77,7 @@ a {
   }
   // NAVIGATION BAR.
   #nav_bar {
-    position: absolute;
+    // position: absolute;
     left: 0;
     right: 0;
     background-color: gray;
@@ -115,9 +119,11 @@ a {
 #footer {
   padding: 20px 0 50px 0;
   margin: 0 auto;
-  width: 755px;
+  width: 980px;
   #foot_bar {
     margin: 0 auto;
+    // Use this to center the following list items.
+    display: table;
     ul {
       margin: 0px;
       padding: 0;
@@ -151,14 +157,49 @@ a {
   }
 }
 
+.left_column {
+  float: left;
+  width: 310px;
+  background-color: blue;
+}
+
+.right_column {
+  float: right;
+  width: 600px;
+  background-color:red;
+}
+
 #home {
+  #main {
+    padding: 0px;
+  }
   #header {
     h1 span {
       color: #BCBBBB;
     }
   }
-  p:first-child {
-    margin-top:0;
+  #home_image {
+    img {
+      width: 100%;
+      // Use this to eliminate the whitespace at the bottom of the image.
+      display: block;
+    }
+  }
+  #home_copy
+  {
+    padding: 30px;
+  }
+  #mission_statement {
+    background-color: #F88017;
+    padding: 20px 40px 20px 40px;
+    margin: 0px;
+    p {
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+    }
   }
 }
 
