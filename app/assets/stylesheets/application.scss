@@ -42,6 +42,7 @@ html, body {
   min-height: 400px;
   padding: 30px;
   overflow: auto;
+  border-radius: 0px 0 10px 10px;
 }
 
 h3 {
@@ -83,6 +84,7 @@ a {
     right: 0;
     // background-color: gray;
     background: url('/assets/metal_test.jpg');
+    border-radius: 10px 10px 0px 0px;
     ul {
       margin: 0 auto;
       width: 980px;
@@ -192,7 +194,7 @@ a {
     padding: 30px;
   }
   #mission_statement {
-    background-color: #F88017;
+    background-color: $dark_orange;
     padding: 20px 40px 20px 40px;
     margin: 0px;
     p {
