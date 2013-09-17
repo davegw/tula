@@ -38,7 +38,8 @@ html, body {
 }
 
 #main {
-  background-color: white;
+  // background-color: white;
+  background: url('/assets/parchment_test2.jpg');
   min-height: 600px;
   padding: 30px;
   overflow: auto;
@@ -81,7 +82,8 @@ a {
     // position: absolute;
     left: 0;
     right: 0;
-    background-color: gray;
+    // background-color: gray;
+    background: url('/assets/metal_test.png');
     ul {
       margin: 0 auto;
       width: 980px;
