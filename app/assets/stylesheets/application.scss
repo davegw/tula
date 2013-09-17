@@ -17,19 +17,16 @@
  $dark_orange: #F88017;
 
 // CONTAINERS.
-html {
-  height: 101%;
-  // background-color: white;
-}
-
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 #all_content {
   min-width: 980px;
   background-color: black;
+  min-height: 100%;
 }
 
 #container {
@@ -40,7 +37,7 @@ html, body {
 #main {
   // background-color: white;
   background: url('/assets/parchment_test2.jpg');
-  min-height: 600px;
+  // min-height: 600px;
   padding: 30px;
   overflow: auto;
 }
