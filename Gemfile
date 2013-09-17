@@ -23,6 +23,9 @@ end
 
 gem 'jquery-rails'
 
+# CMS for managing blog content.
+gem 'comfortable_mexican_sofa', '~> 1.8.2'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

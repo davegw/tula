@@ -1,4 +1,10 @@
 Tula::Application.routes.draw do
+  
+  # ComfortableMexicanSofa::Routing.admin(:path => '/cms-admin')
+  
+  # # Make sure this routeset is defined last
+  # ComfortableMexicanSofa::Routing.content(:path => '/', :sitemap => false)
+
   # get "home/index"
 
   # The priority is based upon order of creation:
@@ -58,6 +64,14 @@ Tula::Application.routes.draw do
   match '/why-tula' => 'home#why', :as => :why
   match '/investment-prospectus' => 'home#prospectus', :as => :prospectus
   match '/contact' => 'home#contact', :as => :contact
+
+  # ComfortableMexicanSofa::Routing.admin(:path => '/cms-admin')
+  
+  # Make sure this routeset is defined last
+  # ComfortableMexicanSofa::Routing.content(:path => '/', :sitemap => false)
+  # ComfortableMexicanSofa::Routing.admin :path => '/cms-admin'
+  ComfortableMexicanSofa::Routing.admin   :path => '/cms-admin'
+  ComfortableMexicanSofa::Routing.content :path => '/', :sitemap => false
 
   # See how all your routes lay out with "rake routes"
 
