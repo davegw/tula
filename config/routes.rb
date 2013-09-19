@@ -60,6 +60,8 @@ Tula::Application.routes.draw do
   match '/investment-prospectus' => 'home#prospectus', :as => :prospectus
   match '/contact' => 'home#contact', :as => :contact
 
+  ComfyBlog::Routing.admin
+  ComfyBlog::Routing.content
   ComfortableMexicanSofa::Routing.admin(:path => '/cms-admin')
   # Make sure this routeset is defined last
   ComfortableMexicanSofa::Routing.content(:path => '/', :sitemap => false)

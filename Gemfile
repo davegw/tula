@@ -25,6 +25,7 @@ gem 'jquery-rails'
 
 # CMS for managing blog content.
 gem 'comfortable_mexican_sofa', '~> 1.8.2'
+gem 'comfy_blog', git: 'git://github.com/joahking/comfy-blog.git', branch: 'feature/1-8-1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
