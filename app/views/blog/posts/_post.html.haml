@@ -1,0 +1,8 @@
+.post{:id => "#{@post.slug}"}
+  %h1.blog_index_title
+    = @post ? post.title : link_to(post.title, blog_post_path(post))
+  %p.blog_index_date
+    = post.created_at.time.strftime("Posted on %b %-d, %Y by ")
+    = post.author
+  %p.blog_post_content
+    = post.content.html_safe
