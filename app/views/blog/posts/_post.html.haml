@@ -6,3 +6,12 @@
     = post.author
   %p.blog_post_content
     = post.content.html_safe
+  - if post.tag_names.length > 0
+    %p.blog_tags
+      Category tags:
+      - tags = post.tag_names.split(", ")
+      - tags.each do |tag|
+        - if tag == tags.last
+          = link_to "#{tag}", tagged_blog_posts_path(tag)
+        - else
+          = link_to "#{tag}, ", tagged_blog_posts_path(tag)

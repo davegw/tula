@@ -1,0 +1,7 @@
+#blog_navigation
+  %h2#blog_archive Blog Archive:
+  %ul
+    - recent_posts = Blog::Post.published[0..9]
+    - recent_posts.each do |entry|
+      %li
+        = link_to "#{entry.title}", blog_post_path(entry)
