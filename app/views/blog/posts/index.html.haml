@@ -1,20 +1,21 @@
 - @body_id = 'blog'
 
 #blog_index
-  .left_column
-    = render :partial => 'navigation_archive'
-  .right_column
-    - @posts.each do |post|
-      .blog_index_post{:id => "#{post.slug}"}
-        %h1.blog_index_title
-          = @post ? post.title : link_to(post.title, blog_post_path(post))
-        %p.blog_index_date
-          = post.created_at.strftime("Posted on %b %d, %Y by ")
-          = post.author
-        %p.blog_index_excerpt
-          = sanitize(truncate(post.content, :omission => "... #{link_to 'more', blog_post_path(post)}", :length => 400, :separator => " "))
+  Please work!
+  / .left_column
+  /   = render :partial => 'navigation_archive'
+  / .right_column
+  /   - @posts.each do |post|
+  /     .blog_index_post{:id => "#{post.slug}"}
+  /       %h1.blog_index_title
+  /         = @post ? post.title : link_to(post.title, blog_post_path(post))
+  /       %p.blog_index_date
+  /         = post.created_at.strftime("Posted on %b %d, %Y by ")
+  /         = post.author
+  /       %p.blog_index_excerpt
+  /         = sanitize(truncate(post.content, :omission => "... #{link_to 'more', blog_post_path(post)}", :length => 400, :separator => " "))
 
-    - if defined?(WillPaginate)
-      = will_paginate @posts, :previous_label => '« Older Posts', :next_label => 'Newer Posts »', :page_links => false
-    - elsif defined?(Kaminari)
-      = paginate @posts
+  /   - if defined?(WillPaginate)
+  /     = will_paginate @posts, :previous_label => '« Older Posts', :next_label => 'Newer Posts »', :page_links => false
+  /   - elsif defined?(Kaminari)
+  /     = paginate @posts

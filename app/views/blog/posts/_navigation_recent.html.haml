@@ -1,9 +1,9 @@
-#blog_navigation
-  = link_to blog_posts_path do
-    %h2 << Back to Blog
-  %h2#recent_posts Recent Posts:
-  %ul
-    - recent_posts = Blog::Post.published[0..4]
-    - recent_posts.each do |entry|
-      %li
-        = link_to "#{entry.title}", blog_post_path(entry)
+/ #blog_navigation
+/   = link_to blog_posts_path do
+/     %h2 << Back to Blog
+/   %h2#recent_posts Recent Posts:
+/   %ul
+/     - recent_posts = Blog::Post.published[0..4]
+/     - recent_posts.each do |entry|
+/       %li
+/         = link_to "#{entry.title}", blog_post_path(entry)
