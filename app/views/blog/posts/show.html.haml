@@ -1,16 +1,16 @@
 %body.blog_post{:id => "#{@post.slug}"}
 
-/ #blog_post_content
-/   .left_column
-/     = render :partial => 'navigation_recent'
-/   .right_column
-/     = render :partial => 'blog/posts/post', :object => @post
+#blog_post_content
+  .left_column
+    = render :partial => 'navigation_recent'
+  .right_column
+    = render :partial => 'blog/posts/post', :object => @post
 
-/ - if ComfyBlog.disqus_enabled?
-/   = render :partial => 'blog/comments/disqus'
-  
-/ - else
-/   .comments
-/     - @post.comments.each do |comment|
-/       = render :partial => 'blog/comments/comment', :object => comment
-/   = render :partial => 'blog/comments/form'
+  / - if ComfyBlog.disqus_enabled?
+  /   = render :partial => 'blog/comments/disqus'
+    
+  / - else
+  /   .comments
+  /     - @post.comments.each do |comment|
+  /       = render :partial => 'blog/comments/comment', :object => comment
+  /   = render :partial => 'blog/comments/form'
