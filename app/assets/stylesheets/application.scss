@@ -205,7 +205,7 @@ a:visited {
   }
 }
 
-#about {
+#about_container {
   #head_shot {
     float: left;
     margin: 0 30px 10px 0;
@@ -226,35 +226,12 @@ a:visited {
   }
 }
 
-#contact {
-  .contact_header {
-    margin: 0;
-    font-size: 22px;
-  }
-  #contact_connect .contact_header {
-    margin-bottom: 5px;
-  }
-  .contact_details {
-    font-size: 18px;
-    line-height: 22px;
-  }
-  #contact_info {
-    margin-bottom: 30px;
-  }
-  img {
-    margin-right:15px;
-    height: 30px;
-  }
-}
-
-#why_tula {
+#why_tula_container {
   canvas#myChart {
   }
-
   h1 {
     margin: 0px;
   }
-
   table.return {
     border: 2px solid black;
     border-collapse: collapse;
@@ -281,19 +258,17 @@ a:visited {
     }
     float: left;
   }
-
   table.percent {
     tr:last-child {
       border-top: 2px solid black;
     }
   }
-
   table.dollar {
     margin-left: 25px;
   }
 }
 
-#prospectus {
+#prospectus_container {
   padding-right: 100px;
   .prospectus_section {
     margin-bottom: 30px;
@@ -322,6 +297,27 @@ a:visited {
   }
   a {
     color: $dark_orange;
+  }
+}
+
+#contact_container {
+  .contact_header {
+    margin: 0;
+    font-size: 22px;
+  }
+  #contact_connect .contact_header {
+    margin-bottom: 5px;
+  }
+  .contact_details {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  #contact_info {
+    margin-bottom: 30px;
+  }
+  img {
+    margin-right:15px;
+    height: 30px;
   }
 }
 

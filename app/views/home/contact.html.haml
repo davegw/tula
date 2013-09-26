@@ -1,21 +1,24 @@
 - @body_id = 'contact'
+%title
+  Contact | TULA
 
-#contact_info
-  %h1.contact_header
-    TULA Investment Group, LLC
-  .contact_details
-    2918 Holyrood Drive
-  .contact_details
-    Oakland, CA 94611
-  .contact_details
-    Phone: (510) 390-4774
-  .contact_details
-    Email: 
-    = link_to 'darylwong@tulainvestmentgroup.com', 'mailto:darylwong@tulainvestmentgroup.com'
+#contact_container
+  #contact_info
+    %h1.contact_header
+      TULA Investment Group, LLC
+    .contact_details
+      2918 Holyrood Drive
+    .contact_details
+      Oakland, CA 94611
+    .contact_details
+      Phone: (510) 390-4774
+    .contact_details
+      Email: 
+      = link_to 'darylwong@tulainvestmentgroup.com', 'mailto:darylwong@tulainvestmentgroup.com'
 
-#contact_connect
-  %h1.contact_header
-    Connect with TULA:
-  = link_to image_tag('linkedin_logo.png'), 'http://www.linkedin.com/pub/daryl-wong/63/394/39b', :target => 'blank'
-  = link_to image_tag('fb_logo.png'), 'https://www.facebook.com/daryl.wong.509', :target => 'blank'
-  = link_to image_tag('gmail_logo.png'), 'mailto:darylwong@tulainvestmentgroup.com'
+  #contact_connect
+    %h1.contact_header
+      Connect with TULA:
+    = link_to image_tag('linkedin_logo.png'), 'http://www.linkedin.com/pub/daryl-wong/63/394/39b', :target => 'blank'
+    = link_to image_tag('fb_logo.png'), 'https://www.facebook.com/daryl.wong.509', :target => 'blank'
+    = link_to image_tag('gmail_logo.png'), 'mailto:darylwong@tulainvestmentgroup.com'
