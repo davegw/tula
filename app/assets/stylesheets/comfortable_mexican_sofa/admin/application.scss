@@ -4,10 +4,7 @@
   input[name="post[title]"], #slug {
     width: 40%;
   }
-  #post_tag_names {
-    width: 75%;
-  }
-  iframe.wysihtml5-sandbox {
-    width: 75% !important;
+  #post_content, #post_tag_names {
+    width: 80%;
   }
 }
