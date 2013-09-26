@@ -161,13 +161,15 @@ a:visited {
 
 .left_column {
   float: left;
-  width: 300px;
+  width: 200px;
   // background-color: blue;
 }
 
 .right_column {
   float: right;
-  width: 610px;
+  width: 680px;
+  border-left: 1px dotted black;
+  padding-left: 30px;
   // background-color:red;
 }
 
@@ -269,7 +271,24 @@ a:visited {
 }
 
 #prospectus_container {
-  padding-right: 100px;
+  // padding-right: 100px;
+  .left_column {
+    ul {
+      padding: 0px;
+      margin: 0;
+      font-size: 18px;
+      line-height: 150%;
+      #prospectus_nav_title {
+        text-decoration: underline;
+        font-weight: bold;
+      }
+      li {
+        padding-left: 10px;
+        list-style-type: none;
+        
+      }
+    }
+  }
   .prospectus_section {
     margin-bottom: 30px;
   }
