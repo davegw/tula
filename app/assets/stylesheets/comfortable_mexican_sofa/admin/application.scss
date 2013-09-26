@@ -1,0 +1,13 @@
+/* Overwrite this file in your application /app/assets/stylesheets/comfortable_mexican_sofa/admin/application.css */
+
+.center-column-content {
+  input[name="post[title]"], #slug {
+    width: 40%;
+  }
+  #post_tag_names {
+    width: 75%;
+  }
+  iframe.wysihtml5-sandbox {
+    width: 75% !important;
+  }
+}
