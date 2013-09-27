@@ -21,7 +21,7 @@
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js'
-    = yield :javascript_includes
+    / = yield :javascript_includes
     = csrf_meta_tags
   %body{:id => @body_id, :class => @body_class}
     - if @comingsoon
