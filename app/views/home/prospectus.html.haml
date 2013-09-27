@@ -6,36 +6,49 @@
   .left_column
     %ul 
       #prospectus_nav_title Quick Navigation:
-      %li Introduction
-      %li Investment Principles
-      %li Investment Strategies
-      %li Investment History
+      - render_prospectus_link 'Introduction', 'intro'
+      - render_prospectus_link 'Investment Principles', 'investment-principles'
+      - render_prospectus_link 'Investment Strategies', 'investment-strategies'
+      %ul
+        - render_prospectus_sub_link 'Value Investing', 'value-investing'
+        - render_prospectus_sub_link 'Creative Research', 'creative-research-investing'
+        - render_prospectus_sub_link 'Contrarian Investing', 'contrarian-investing'
+      - render_prospectus_link 'Investment History', 'investment-history'
+      / %li Introduction
+      / %li Investment Principles
+      / %li Investment Strategies
+      / %li Investment History
   .right_column  
-    .prospectus_section
-      %h3.prospectus_heading
-        INVESTMENT PRINCIPLES
+    - render_prospectus_section 'INVESTMENT PRINCIPLES', 'investment-principles' do
       %p.prospectus_body
         I have been investing in the stock market since 1995.  My average annual return over the last eighteen years is 15% while the S & P 500 average is 10%. My investment style is a combination of value investing, contrarian and creatively finding the next trend before it happens. I tend to buy and hold for many years.  I try to take a simple approach. I avoid the exotic investment. I find that it’s a more reliable to make money. I do not short. I do not trade puts and calls, nor futures or swaps.  I do not buy on margin. I invest my clients money the way I invest my own.  I try to make returns that beat the market while also trying to minimize risk.  
 
-    .prospectus_section
-      %h3.prospectus_heading
-        INVESTMENT STRATEGIES
-      .prospectus_sub_heading
-        Value Investing:
-      %p.prospectus_body
-        I tend to invest more heavily in small cap stocks than most investment managers.  I have found that investing in attractively valued under-the-radar small cap stocks have excellent growth potential. They are also more likely to be acquisition targets for larger companies.  My best years have been when this has happened. Already this year I have had four companies that are being acquired or being taken private. This has resulted in 25% to 30% gains in one day for each of these companies. Although I have a better chance to make outsized gain with small caps, I also buy some larger more established companies to help keep the portfolio from becoming too volatile. To balance their volatility, I do invest in some larger, more mainstream companies such as Chevron and Walmart.  These companies are very stable and will give you consistent and solid returns.
-      .prospectus_sub_heading
-        Creative Research Investing:
-      %p.prospectus_body
-        An example of creatively finding the next trend are gun stocks.  With all the heart breaking news connected with the sad shootings in Columbine, Aurora, Virginia Tech, Newtown, Connecticut and many more, there has been a cry for more stringent gun control.  This has caused gun stocks to soar because people who are thinking about buying a gun are doing it now.  It was also a bet that Obama would win the election last November.  If the Republican candidates had won, there would not be such a push for gun control which ironically would have been bad for gun stocks.  The gun stocks gained more than 300% over the last five years. By the way, I do not own any guns and I am not a gun enthusiast.  But I am an enthusiast of making a profit!
-      .prospectus_sub_heading
-        Contrarian Investing:
-      %p.prospectus_body
-        An example of a contrarian investment would be Bank of America.  Nobody wanted to touch this company in 2011 and the price did fall a lot during that year.  Despite the continued decline in the price of Bank of America I purchased shares in January, June and September of 2011 as well as February of 2012.  In 2012 Bank of America came roaring back, more than doubling its value and now I am in a gain position. The price fell so far that it seemed like the only way it would not make a great investment is if it went out of business and it’s just too big to do that.  If the government would not let AIG go out of business during the mortgage meltdown of 2007 to 2009 than I reasoned that B of A would also survive and in the long run prosper.  I have large holdings of B of A and I could easily see holding it for ten years.  During the next ten years I see them putting their mortgage problems behind them and seeing the price go back to pre-mortgage meltdown prices.  If I’m correct, that would mean a quadrupling of its current price. Obviously B of A is not a small cap company but fely that it was oversold and the contrarian investor in me saw this as a good opportunity.
+    / .prospectus_section
+    /   %h3.prospectus_heading
+    /     INVESTMENT STRATEGIES
+    - render_prospectus_section 'INVESTMENT STRATEGIES', 'investment-strategies' do
+      / .prospectus_sub_heading
+      /   Value Investing:
+      - render_prospectus_sub_section 'Value Investing:', 'value-investing' do
+        %p.prospectus_body
+          I tend to invest more heavily in small cap stocks than most investment managers.  I have found that investing in attractively valued under-the-radar small cap stocks have excellent growth potential. They are also more likely to be acquisition targets for larger companies.  My best years have been when this has happened. Already this year I have had four companies that are being acquired or being taken private. This has resulted in 25% to 30% gains in one day for each of these companies. Although I have a better chance to make outsized gain with small caps, I also buy some larger more established companies to help keep the portfolio from becoming too volatile. To balance their volatility, I do invest in some larger, more mainstream companies such as Chevron and Walmart.  These companies are very stable and will give you consistent and solid returns.
+      / .prospectus_sub_heading
+      /   Creative Research Investing:
+      - render_prospectus_sub_section 'Creative Research Investing:', 'creative-research-investing' do
+        %p.prospectus_body
+          An example of creatively finding the next trend are gun stocks.  With all the heart breaking news connected with the sad shootings in Columbine, Aurora, Virginia Tech, Newtown, Connecticut and many more, there has been a cry for more stringent gun control.  This has caused gun stocks to soar because people who are thinking about buying a gun are doing it now.  It was also a bet that Obama would win the election last November.  If the Republican candidates had won, there would not be such a push for gun control which ironically would have been bad for gun stocks.  The gun stocks gained more than 300% over the last five years. By the way, I do not own any guns and I am not a gun enthusiast.  But I am an enthusiast of making a profit!
+      / .prospectus_sub_heading
+      /   Contrarian Investing:
+      - render_prospectus_sub_section 'Contrarian Investing:', 'contrarian-investing' do
+        %p.prospectus_body
+          An example of a contrarian investment would be Bank of America.  Nobody wanted to touch this company in 2011 and the price did fall a lot during that year.  Despite the continued decline in the price of Bank of America I purchased shares in January, June and September of 2011 as well as February of 2012.  In 2012 Bank of America came roaring back, more than doubling its value and now I am in a gain position. The price fell so far that it seemed like the only way it would not make a great investment is if it went out of business and it’s just too big to do that.  If the government would not let AIG go out of business during the mortgage meltdown of 2007 to 2009 than I reasoned that B of A would also survive and in the long run prosper.  I have large holdings of B of A and I could easily see holding it for ten years.  During the next ten years I see them putting their mortgage problems behind them and seeing the price go back to pre-mortgage meltdown prices.  If I’m correct, that would mean a quadrupling of its current price. Obviously B of A is not a small cap company but fely that it was oversold and the contrarian investor in me saw this as a good opportunity.
 
-    .prospectus_section
-      %h3.prospectus_heading#history
-        INVESTMENT HISTORY
+    / .prospectus_section
+    /   %h3.prospectus_heading#history
+    /     INVESTMENT HISTORY
+    /   %p.prospectus_body#history
+    /     (#{link_to('see the numbers', why_path)})
+    - render_prospectus_section 'INVESTMENT HISTORY', 'investment-history' do
       %p.prospectus_body#history
         (#{link_to('see the numbers', why_path)})
       %p.prospectus_body

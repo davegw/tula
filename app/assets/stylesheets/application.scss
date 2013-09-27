@@ -285,37 +285,46 @@ a:visited {
       li {
         padding-left: 10px;
         list-style-type: none;
-        
+      }
+      ul {
+        li {
+          padding-left: 20px;
+        }
       }
     }
+    a:hover {
+      color: $dark_orange;
+    }
   }
-  .prospectus_section {
-    margin-bottom: 30px;
-  }
-  .prospectus_heading {
-    margin: 0 0 5px 0;
-  }
-  .prospectus_heading#history {
-    display: inline-block;
-  }
-  .prospectus_sub_heading {
-    font-weight: bold;
-    font-size: 18px;
-    padding-left: 10px;
-    text-decoration: underline;
-    margin-top: 10px;
-  }
-  .prospectus_body {
-    margin: 0 0 10px;
-    padding-left: 10px;
-  }
-  .prospectus_body#history {
-    margin: 0;
-    padding: 0;
-    display: inline;
-  }
-  a {
-    color: $dark_orange;
+  .right_column {
+    .prospectus_section {
+      margin-bottom: 30px;
+    }
+    .prospectus_heading {
+      margin: 0 0 5px 0;
+    }
+    .prospectus_heading#investment-history {
+      display: inline-block;
+    }
+    .prospectus_sub_heading {
+      font-weight: bold;
+      font-size: 18px;
+      padding-left: 10px;
+      text-decoration: underline;
+      margin-top: 10px;
+    }
+    .prospectus_body {
+      margin: 0 0 10px;
+      padding-left: 10px;
+    }
+    .prospectus_body#history {
+      margin: 0;
+      padding: 0;
+      display: inline;
+    }
+    a {
+      color: $dark_orange;
+    }
   }
 }
 
