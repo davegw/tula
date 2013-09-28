@@ -1,13 +1,13 @@
 module HomeHelper
   def render_prospectus_link(text, hash)
-    haml_tag :li do
+    haml_tag :li, :id => 'nav-' + hash do
       haml_tag :a, text, :href => '#' + hash
     end
   end
   def render_prospectus_section(section, hash)
     haml_tag :div, :class => 'prospectus_section' do
       haml_tag :a, :id => hash
-      haml_tag :h3, section, :class => 'prospectus_heading', :id => hash
+      haml_tag :h3, section, :class => 'prospectus_heading', :id => 'section-' + hash
       yield
     end
   end

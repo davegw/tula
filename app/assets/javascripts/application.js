@@ -28,7 +28,7 @@ $(function() {
   $('#home #header h1 span').animate({color: '#FFA500'}, 3000);;
 });
 
-
+// Locks the left column navbar from scrolling on the prospectus page.
 $(function() {
   var max_scroll = 160
   $(window).scroll(function () {
@@ -45,11 +45,19 @@ $(function() {
   });
 });
 
+// $(function() {
+//   $('#prospectus_container .left_column ul ul li').hide();
+//   $('.more_headings').click(function() {
+//     console.log("hi");
+//     $(this).children().show();
+//   })
+// })
+
 // Add styling to selected prospectus section.
 $(function() {
   $('#prospectus_container .left_column li').click(function() {
-    $('#prospectus_container .left_column li').css({"color": "inherit", "font-weight": "inherit"});
-    $(this).css({"color": "#F88017", "font-weight": "bold"});
+    $('#prospectus_container .left_column li').removeClass('selected_section');
+    $(this).addClass('selected_section');
   });
 });
 
