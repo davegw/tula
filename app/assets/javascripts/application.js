@@ -28,6 +28,23 @@ $(function() {
   $('#home #header h1 span').animate({color: '#FFA500'}, 3000);;
 });
 
+
+$(function() {
+  var max_scroll = 160
+  $(window).scroll(function () {
+    var navbar = $("#prospectus_container .left_column");
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    if(scrollTop > max_scroll && !navbar.is(".navbar_fixed")) {
+      console.log("go floated");
+      navbar.addClass("navbar_fixed");
+    }
+    else if(scrollTop < max_scroll && navbar.is(".navbar_fixed")) {
+      console.log("return to normal");
+      navbar.removeClass("navbar_fixed");
+    }
+  });
+});
+
 // Add styling to selected prospectus section.
 $(function() {
   $('#prospectus_container .left_column li').click(function() {

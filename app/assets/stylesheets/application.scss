@@ -273,18 +273,21 @@ a:visited {
 #prospectus_container {
   // padding-right: 100px;
   .left_column {
+    padding-top: 10px;
     ul {
       padding: 0px;
       margin: 0;
       font-size: 18px;
-      line-height: 150%;
+      line-height: 100%;
       #prospectus_nav_title {
-        text-decoration: underline;
         font-weight: bold;
+        margin-bottom: 8px;
+        font-style: italic;
       }
       li {
         padding-left: 10px;
         list-style-type: none;
+        margin-bottom: 8px;
       }
       ul {
         li {
@@ -296,12 +299,19 @@ a:visited {
       color: $dark_orange;
     }
   }
+  .left_column.navbar_fixed {
+    position: fixed;
+    // Fixes weird error where sometimes the links disappear.
+    -webkit-transform: translateZ(0);
+    top: 0px;
+  }
   .right_column {
     .prospectus_section {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     .prospectus_heading {
       margin: 0 0 5px 0;
+      padding-top: 10px;
     }
     .prospectus_heading#investment-history {
       display: inline-block;
@@ -311,7 +321,7 @@ a:visited {
       font-size: 18px;
       padding-left: 10px;
       font-style: italic;
-      margin-top: 10px;
+      padding-top: 10px;
     }
     .prospectus_body {
       margin: 0 0 10px;
