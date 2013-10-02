@@ -79,8 +79,15 @@
       %p.prospectus_body#history
         (#{link_to('see the numbers', why_path)})
       - render_prospectus_sub_section 'Dot-Com Boom (1995-2001)', 'dot-com-boom' do
-        %p.prospectus_body
-          These were the go-go years when high tech stocks really took off. These were some of the market’s best years ever. From 1995 (when I started investing), my performance equaled or exceeded the market in five out of seven years. The S&P 500 averaged 17.4% over those seven years while I averaged 25.7% gains for the same period. Cisco Systems and Ventana Medical Systems were two of my stars.
+        %p.prospectus_body.with_example_stocks
+          The market rebounded quickly from the Dot-Com crash. Over this 5 year period the S&P 500 gained an average of 13.2% while I continued to outperform the market gaining an average of 17.8% over the same period.
+          - render_example_stock_section do
+            - render_example_stock 'Desert Sun Mining (formerly DSM)', 'Gold mining' do
+              Desert Sun was held for one year before being bought out by Yamana Gold (AUY) in April 2006. I sold Yamana two years later for a total gain of 442%.
+            - render_example_stock 'Fossil (FOSL)', 'Consumer fashion accessories' do
+              Fossil gained 130% in the 17 months ending October 2007 when I sold.
+            - render_example_stock 'PacifiCare (formerly PHS)', 'Healthcare' do
+              PacifiCare gained 63% in the two years ending September 2005 when UnitedHealth Group (UNH) acquired it.
       - render_prospectus_sub_section 'Dot-Com Bust (2002)', 'dot-com-bust' do
         %p.prospectus_body
           The dot-com bubble burst and the S&P 500 lost 22% in 2002. I lost a comparable 25% as well. 
@@ -88,8 +95,16 @@
         %p.prospectus_body
           The market rebounded quickly from the Dot-Com crash. Over this 5 year period the S&P 500 gained an average of 13.2% while I continued to outperform the market gaining an average of 17.8% over the same period.
       - render_prospectus_sub_section 'Mortgage Meltdown (2008-2010)', 'mortgage-meltdown' do
-        %p.prospectus_body
+        %p.prospectus_body.with_example_stocks
           As mentioned earlier, over the last 19 years I have averaged a 15.8% annual return on investment, but I believe that actually understates my performance. During the stock meltdown of 2008 the investors that did the best were the ones that held on to their stocks. Unfortunately and understandably, many investors panicked and sold their stocks. By doing so they missed out on the 2009 and 2010 rebound. Not only did I not sell stocks at that time, I gritted my teeth and bought more stocks at the end of 2008. The market continued to tumble so I held my breath and continued to buy in early 2009. My thinking was that the market was very much oversold and that stocks were grossly undervalued. In March 2009, the market hit bottom. Because I had bought stocks when they were near the bottom, I completely recovered all my losses by the second quarter of 2010. Everything after that has been icing on the cake. Only now, six years later, has the market rebounded to its pre-crash highs. The 2008 mortgage market meltdown was actually good for me. It allowed me to opportunistically buy stocks at good values and my historical average annual return understates my performance because I was more fully invested during the 2009 and 2010 bounce back years.
+          - render_example_stock_section do
+            - render_example_stock 'Tyson Foods (TSN)', 'Meat products' do
+              Bought in November 2008 and still hold. Currently, worth more than five times the amount I paid for it.
+            - render_example_stock 'Esterline (ESL)', 'Aerospace engineering products' do
+              Bought in November 2008 and sold in June 2013 at two and a half times what I paid for it.
+            - render_example_stock 'Venoco (VQ)', 'Oil and natural gas' do
+              Bought two separate times in January 2009 and again in February 2009. The company was acquired in October 2012 for more than six times the price I paid for it.
+
       - render_prospectus_sub_section 'Sustained Recovery & Expansion (2011-Present)', 'sustained-recovery-and-expansion' do
         %p.prospectus_body
           After strong years in 2009 and 2010 I did post a loss in 2011. However, 2012 saw continued recovery as the market and I both made similarly strong gains. 2013 is shaping up to be one of my best years ever. I would call it the year of the acquisition. As mentioned previously, I have had seven companies bought out this year. Because of the recession, companies spent less money and consequently, many are now cash rich. As we emerge out of the recession now, this is a perfect environment for mergers and acquisitions. I am not surprised by this activity, but still am very pleased to have had seven successful acquisitions in my portfolio on the year.

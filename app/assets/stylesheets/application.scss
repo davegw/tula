@@ -325,7 +325,30 @@ a:visited {
   }
   .right_column {
     .prospectus_section {
-      margin-bottom: 20px;
+      margin: 0 0 20px 0;
+    }
+    .prospectus_sub_section {
+      margin: 0 0 10px 10px;
+      .example_stocks_section {
+        margin: 0 0 0 20px;
+        .example_stocks_header {
+          margin: 0px;
+          font-weight: bold;
+          font-style: italic;
+          font-size: 17px;
+        }
+        ul {
+          margin: 0px;
+          li {
+            .example_stock{
+              span {
+                font-style: italic;
+              }
+              margin: 0px;
+            }
+          }
+        }
+      }
     }
     .prospectus_heading {
       margin: 0 0 5px 0;
@@ -337,13 +360,14 @@ a:visited {
     .prospectus_sub_heading {
       font-weight: bold;
       font-size: 18px;
-      padding-left: 10px;
       font-style: italic;
       padding-top: 10px;
     }
     .prospectus_body {
-      margin: 0 0 10px;
-      padding-left: 10px;
+      margin: 0 0 10px 10px;
+    }
+    .prospectus_body.with_example_stocks {
+      margin-bottom: 0;
     }
     .prospectus_body#history {
       margin: 0;
