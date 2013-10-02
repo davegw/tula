@@ -77,7 +77,7 @@
     /     (#{link_to('see the numbers', why_path)})
     - render_prospectus_section 'INVESTMENT HISTORY', 'investment-history' do
       %p.prospectus_body#history
-        (#{link_to('see the numbers', why_path)})
+        #{link_to('see the numbers', why_path)}
       - render_prospectus_sub_section 'Dot-Com Boom (1995-2001)', 'dot-com-boom' do
         %p.prospectus_body.with_example_stocks
           The market rebounded quickly from the Dot-Com crash. Over this 5 year period the S&P 500 gained an average of 13.2% while I continued to outperform the market gaining an average of 17.8% over the same period.
