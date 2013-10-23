@@ -101,12 +101,13 @@ a:visited {
       color: white;
       li {
         margin: 0;
-        padding: 5px 30px 5px 30px;
+        padding: 10px 30px 10px 30px;
         font-size: 20px;
         text-align: center;
         display: inline;
         list-style-type: none;
         border-left: 1px solid white;
+        position: relative;
       }
       li:hover {
         color: #FFA500;
@@ -116,9 +117,36 @@ a:visited {
         pointer-events: none;
         cursor: default;
       }
+      .selected .has_sub_nav {
+        pointer-events: auto;
+        cursor: auto;
+      }
       li#nav_home {
         border-left: none;
       }
+    }
+    .has_sub_nav ul {
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      padding: 0px;
+      background-color: black;
+      margin: 10px 0 0 0;
+      width: 250px;
+      border-radius: 0 0 10px 10px;
+      li {
+        text-align: left;
+        border: none;
+        padding: 10px;
+        display: block;
+        border-bottom: 1px solid white;
+      }
+      li#references {
+        border-bottom: none;
+      }
+    }
+    .sub_nav {
+      background-color: black;
     }
   }
 }
