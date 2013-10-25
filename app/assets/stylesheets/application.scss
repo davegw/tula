@@ -38,7 +38,7 @@ html, body {
 
 #main {
   // background-color: white;
-  background: url('/dev-assets/seamlesstexture1_500.jpg');
+  background: url('/assets/seamlesstexture1_500.jpg');
   min-height: 400px;
   padding: 30px;
   overflow: auto;
@@ -147,7 +147,7 @@ a:visited {
     }
     .sub_nav, 
     .has_sub_nav ul {
-      background: url('/dev-assets/seamlesstexture2_500.jpg');
+      background: url('/assets/seamlesstexture2_500.jpg');
     }
   }
 }
