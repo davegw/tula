@@ -38,7 +38,7 @@ html, body {
 
 #main {
   // background-color: white;
-  background: url('/assets/parchment_test2.jpg');
+  background: url('/dev-assets/seamlesstexture1_500.jpg');
   min-height: 400px;
   padding: 30px;
   overflow: auto;
@@ -130,7 +130,6 @@ a:visited {
       left: 0px;
       right: 0px;
       padding: 0px;
-      background-color: black;
       margin: 10px 0 0 0;
       width: 250px;
       border-radius: 0 0 10px 10px;
@@ -145,8 +144,9 @@ a:visited {
         border-bottom: none;
       }
     }
-    .sub_nav {
-      background-color: black;
+    .sub_nav, 
+    .has_sub_nav ul {
+      background: url('/dev-assets/seamlesstexture2_500.jpg');
     }
   }
 }
