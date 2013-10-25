@@ -68,9 +68,12 @@ a:visited {
 
 #header {
   // Adjust or remove.
-  height: 111px;
+  height: 112px;
   padding-top: 28px;
   color: #BCBBBB;
+  margin: 0;
+  border: none;
+  font-size: 0;
   // background-color: black;
   h1 {
     font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
@@ -93,7 +96,6 @@ a:visited {
     background: url('/assets/metal_test.jpg');
     border-radius: 10px 10px 0px 0px;
     ul {
-      margin: 0 auto;
       width: 980px;
       padding: 10px 0px 10px 0px;
       // Eliminates the space between list items.
