@@ -13,7 +13,7 @@
       %th Price at 1/1/13
       %th Buy Out Price
       %th Return
-    - a = Acquisition.all
+    - a = Acquisition.order(:id).all
     - a.each do |i|
       %tr
         %td

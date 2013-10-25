@@ -16,7 +16,7 @@
       %th Year
       %th S&P 500
       %th TULA
-    - r = HistoricReturn.where("year >= ?", 1994)
+    - r = HistoricReturn.where("year >= ?", 1994).order(:year)
     - r.each do |i|
       %tr
         %td 
