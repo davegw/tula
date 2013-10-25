@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130919073439) do
+ActiveRecord::Schema.define(:version => 20131025021831) do
+
+  create_table "acquisitions", :force => true do |t|
+    t.integer  "year"
+    t.date     "initial_date"
+    t.date     "acquisition_date"
+    t.decimal  "initial_price"
+    t.decimal  "acquisition_price"
+    t.decimal  "return"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "company"
+  end
 
   create_table "articles", :force => true do |t|
     t.string   "title"

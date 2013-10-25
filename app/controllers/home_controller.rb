@@ -13,6 +13,12 @@ class HomeController < ApplicationController
   def why
   end
 
+  def acquisitions
+  end
+
+  def references
+  end
+
   def prospectus
   end
 

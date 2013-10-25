@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  year: 1
+  initial_date: 2013-10-24
+  acquisition_date: 2013-10-24
+  initial_price: 9.99
+  acquisitions_price: 
+  return: 9.99
+
+two:
+  year: 1
+  initial_date: 2013-10-24
+  acquisition_date: 2013-10-24
+  initial_price: 9.99
+  acquisitions_price: 
+  return: 9.99
