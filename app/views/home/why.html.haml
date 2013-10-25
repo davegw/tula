@@ -6,12 +6,12 @@
 #why_tula_container
   %h1
     Why TULA Investment Group?
-  %h2 
-    Historic Return on Investment vs S&P 500
+  %h3
+    Historic Return on Investment: TULA vs S&P 500
 
   %canvas#myChart
 
-  %table.return.percent
+  %table.why_table.return_percent
     %tr
       %th Year
       %th S&P 500
@@ -33,7 +33,7 @@
       %td
         #{(r.average(:tula_return)*100).round(1)}%
 
-  %table.return.dollar
+  %table.why_table.return_dollar
     %tr
       %th Year
       %th S&P 500

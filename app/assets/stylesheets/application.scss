@@ -261,11 +261,15 @@ a:visited {
   canvas#myChart {
   }
   h1 {
-    margin: 0px;
+    margin: 0 0 10px 0;
   }
-  table.return {
+  h3 {
+    margin: 0 0 10px 0;
+  }
+  table.why_table {
     border: 2px solid black;
     border-collapse: collapse;
+    float: left;
     td, th {
       border: 1px dotted black;
       border-left: 1px solid black;
@@ -287,15 +291,37 @@ a:visited {
     tr:last-child {
       font-weight: bold;
     }
-    float: left;
   }
-  table.percent {
+  table.return_percent {
     tr:last-child {
       border-top: 2px solid black;
     }
   }
-  table.dollar {
+  table.return_dollar {
     margin-left: 25px;
+  }
+}
+
+#acquisitions_container {
+  table.acquisitions_table {
+    float: none;
+    td, th {
+      font-size: 18px;
+      width: 130px;
+    }
+    td:first-child, th:first-child {
+      width: 170px;
+    }
+    td:first-child {
+      text-align: left;
+      padding-left:30px;
+    }
+    tr:last-child {
+      font-weight: normal;
+    }
+  }
+  #virgin_media_note {
+    font-style: italic;
   }
 }
 
