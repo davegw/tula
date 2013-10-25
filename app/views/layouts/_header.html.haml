@@ -1,8 +1,9 @@
 #header
-  = link_to root_path do
-    %h1 
-      %span TULA
-      Investment Group
+  #header_title
+    = link_to root_path do
+      %h1 
+        %span TULA
+        Investment Group
   #nav_bar
     %ul
       = link_to home_path, :class => "#{active_class('home')}" do
