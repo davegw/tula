@@ -64,7 +64,7 @@ $(function() {
 // Add a dropdown menu from the navigation bar.
 $(function() {
   // HTML to append to the navigation bar.
-  var html = '<ul><a href="../why-tula"><li>Historical Return</li></a><a href="../why-tula/2013-acquired-companies"><li>2013 Acquisitions</li></a><a href="../why-tula/references"><li id="references">References</li></a></ul>';
+  var html = '<ul><a href="../why-tula"><li>Historical Return</li></a><a href="../why-tula/2013-acquired-companies"><li>2013 Acquired Companies</li></a><a href="../why-tula/references"><li id="references">Client References</li></a></ul>';
   $('.has_sub_nav').hover(
     function() {
       $(this).addClass('sub_nav');
