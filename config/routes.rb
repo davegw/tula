@@ -61,6 +61,7 @@ Tula::Application.routes.draw do
   match '/why-tula/references' => 'home#references', :as => :references
   match '/investment-prospectus' => 'home#prospectus', :as => :prospectus
   match '/contact' => 'home#contact', :as => :contact
+  match '/terms' => 'home#terms', :as => :terms
 
   ComfyBlog::Routing.admin
   ComfyBlog::Routing.content
