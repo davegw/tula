@@ -300,13 +300,16 @@ a:visited {
       border-top: 2px solid black;
     }
   }
+  .why_dislosure {
+    font-style: italic;
+  }
 }
 
 #why_tula_container {
   #return_percent_table_container,
   #return_dollar_table_container {
     float: left;
-    margin-top: 20px;
+    margin: 20px 0;
     p {
       margin: 0 0 5px 0;
       text-align: center;
@@ -317,6 +320,13 @@ a:visited {
   }
   #return_dollar_table_container {
     margin-left: 80px;
+  }
+  #return_disclosure {
+    clear: both;
+    span {
+      font-weight: bold;
+      font-style: normal;
+    }
   }
 }
 
@@ -337,9 +347,6 @@ a:visited {
     tr:last-child {
       font-weight: normal;
     }
-  }
-  #virgin_media_note {
-    font-style: italic;
   }
 }
 

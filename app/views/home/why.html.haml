@@ -7,7 +7,7 @@
   %h1
     Why TULA Investment Group?
   %h3
-    Historic Return on Investment: TULA vs S&P 500
+    Historic Return on Investment*: TULA vs S&P 500
 
   %canvas#myChart
   #return_percent_table_container
@@ -61,3 +61,8 @@
           %td 
             - b = ((i.tula_return+1)*b)
             #{number_to_currency(b, :unit => "$", :precision => 0)}
+  #return_disclosure
+    %p.why_dislosure
+      %span
+        *Note: 
+      TULA's historical return figures are derived from TULA's largest and oldest client and are representative of TULA's performance in general. The figures are gross numbers without any deduction for management fees.
