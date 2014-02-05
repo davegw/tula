@@ -66,11 +66,6 @@
         %p.prospectus_body
           To quote Ben Graham from the frontispiece to Security Analysis, “Many shall be restored that are now fallen and many shall fall that are now in honor.” That is a nice summation of contrarian investing.
 
-    / .prospectus_section
-    /   %h3.prospectus_heading#history
-    /     INVESTMENT HISTORY
-    /   %p.prospectus_body#history
-    /     (#{link_to('see the numbers', why_path)})
     - render_prospectus_section 'INVESTMENT HISTORY', 'investment-history' do
       %p.prospectus_body#history
         #{link_to('see the numbers', why_path)}
