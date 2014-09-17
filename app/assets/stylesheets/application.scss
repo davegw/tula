@@ -331,6 +331,13 @@ a:visited {
 }
 
 #acquisitions_container {
+  #acquisitions_year_select {
+    float: right; 
+    margin-right: 220px;
+    select {
+      font-size: 18px;
+    }
+  }
   table.acquisitions_table {
     float: none;
     td, th {
@@ -338,7 +345,7 @@ a:visited {
       width: 130px;
     }
     td:first-child, th:first-child {
-      width: 170px;
+      width: 200px;
     }
     td:first-child {
       text-align: left;

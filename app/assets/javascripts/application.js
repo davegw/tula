@@ -64,7 +64,7 @@ $(function() {
 // Add a dropdown menu from the navigation bar.
 $(function() {
   // HTML to append to the navigation bar.
-  var html = '<ul><a href="../why-tula"><li>Historical Return</li></a><a href="../why-tula/2013-acquired-companies"><li class="last_sub_nav_item">2013 Acquired Companies</li></a></ul>';
+  var html = '<ul><a href="../why-tula"><li>Historical Return</li></a><a href="../why-tula/acquired-companies"><li class="last_sub_nav_item">Acquired Company List</li></a></ul>';
   $('.has_sub_nav').hover(
     function() {
       $(this).addClass('sub_nav');
@@ -121,3 +121,16 @@ $(function() {
     new Chart(document.getElementById("myChart").getContext("2d")).Line(lineChartData, options);
   };
 });
+
+$(function(){
+  displayYear();
+  $('#acquisitions_container select').on('change', function() {
+    displayYear();
+  });
+
+  function displayYear(){
+    var selectedYear = $('#acquisitions_container select').val();
+    $('.acquisition_year').hide();
+    $('#'+selectedYear+'_acquisitions').show();
+  }
+})

@@ -57,7 +57,7 @@ Tula::Application.routes.draw do
   match '/home' => 'home#index', :as => :home
   match '/about' => 'home#about', :as => :about
   match '/why-tula' => 'home#why', :as => :why
-  match '/why-tula/2013-acquired-companies' => 'home#acquisitions', :as => :acquisitions
+  match '/why-tula/acquired-companies' => 'home#acquisitions', :as => :acquisitions
   match '/why-tula/references' => 'home#references', :as => :references
   match '/investment-prospectus' => 'home#prospectus', :as => :prospectus
   match '/contact' => 'home#contact', :as => :contact
