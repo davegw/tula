@@ -114,7 +114,7 @@ $(function() {
       // Scale gets whacky when over 110,000 for some reason.
       // Use scaleOverride to manually set scale on the y-axis.
       scaleOverride: true,
-      scaleSteps: 11,
+      scaleSteps: 12,
       scaleStepWidth: 10000,
       scaleStartValue: 10000
     };
