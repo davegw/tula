@@ -319,7 +319,7 @@ a:visited {
     }
   }
   #return_dollar_table_container {
-    margin-left: 80px;
+    margin-left: 50px;
   }
   #return_disclosure {
     clear: both;
@@ -333,9 +333,12 @@ a:visited {
 #acquisitions_container {
   #acquisitions_year_select {
     float: right; 
-    margin-right: 220px;
+    margin: 0 220px 0 0;
+    h3 {
+      margin: 0px;
+    }
     select {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
   table.acquisitions_table {
