@@ -131,6 +131,7 @@ $(function(){
   function displayYear(){
     var selectedYear = $('#acquisitions_container select').val();
     $('.acquisition_year').hide();
+    $('span#selected_year').text(selectedYear);
     $('#'+selectedYear+'_acquisitions').show();
   }
 })
