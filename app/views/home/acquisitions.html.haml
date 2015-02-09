@@ -8,56 +8,33 @@
       %h3
         Year:
         %select
-          %option{:value => 2014, :selected => true} 
-            2014
-          %option{:value => 2013}
-            2013
+          - @years.reverse.each do |year|
+            %option{:value => year, :selected => @years.last == year}
+              = year
   %h1
     %span#selected_year
     Acquired Companies
   %p.acquisition_subheader
     Schedule of companies invested in that have been acquired or merged since the start of
     %span#selected_year
-  #2013_acquisitions.acquisition_year
-    %table.why_table.acquisitions_table
-      %tr
-        %th Company
-        %th Price at 1/1/13
-        %th Buy Out Price
-        %th Return
-      - a = Acquisition.where(:year => 2013).order(:id).all
-      - a.each do |i|
+  - @years.each do |year|
+    %div.acquisition_year{:id => year.to_s + "_acquisitions"}
+      %table.why_table.acquisitions_table
         %tr
-          %td
-            #{i.company}
-          %td
-            #{number_to_currency(i.initial_price, :unit => "$", :precision => 2)}
-          %td
-            #{number_to_currency(i.acquisition_price, :unit => "$", :precision => 2)}
-          %td
-            #{((i.return)*100).round(1)}%
-    #acquisition_notes
-      %p.why_dislosure
-        * On 6/10/13, the deal for the buy out of Virgin Media by Liberty Global was completed. Virgin Media shareholders received $17.50 for each share they owned plus stock in Liberty Global. Total return including both cash payments and receipt of Liberty Global stock equates to a 35% return over the 1/1/13 valuation.
-  #2014_acquisitions.acquisition_year
-    %table.why_table.acquisitions_table
-      %tr
-        %th Company
-        %th Price at 1/1/14
-        %th Buy Out Price
-        %th Return
-      - a = Acquisition.where(:year => 2014).order(:id).all
-      - a.each do |i|
-        %tr
-          %td
-            #{i.company}
-          %td
-            #{number_to_currency(i.initial_price, :unit => "$", :precision => 2)}
-          %td
-            #{number_to_currency(i.acquisition_price, :unit => "$", :precision => 2)}
-          %td
-            #{((i.return)*100).round(1)}%
-    #acquisition_notes
-      %p.why_dislosure
-        
-
+          %th Company
+          %th Price at 1/1/#{(year % 100).to_s}
+          %th Buy Out Price
+          %th Return
+        - @acquisitions[year].each do |acquisition|
+          %tr
+            %td
+              #{acquisition.company}
+            %td
+              #{number_to_currency(acquisition.initial_price, :unit => "$", :precision => 2)}
+            %td
+              #{number_to_currency(acquisition.acquisition_price, :unit => "$", :precision => 2)}
+            %td
+              #{((acquisition.return)*100).round(1)}%
+      #acquisition_notes
+        %p.why_dislosure
+          = @disclosures[year]
