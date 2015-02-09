@@ -1,3 +1,3 @@
 class HistoricReturn < ActiveRecord::Base
-  attr_accessible :fund, :return, :year
+  attr_accessible :year, :sp500_return, :tula_return
 end

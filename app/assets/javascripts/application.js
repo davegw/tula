@@ -19,18 +19,18 @@
 $(function() {
   $('#coming_soon h2').effect("pulsate", {times:2}, 10000, function() {
     // Change the font color to orange.
-    $('#coming_soon h1 span').animate({color: '#FFA500'}, 2500);;
+    $('#coming_soon h1 span').animate({color: '#FFA500'}, 2500);
   });
 });
 
 // Fade color in on TULA text on homepage.
 $(function() {
-  $('#home #header h1 span').animate({color: '#FFA500'}, 3000);;
+  $('#home #header h1 span').animate({color: '#FFA500'}, 3000);
 });
 
 // Locks the left column navbar from scrolling on the prospectus page.
 $(function() {
-  var max_scroll = 160
+  var max_scroll = 160;
   $(window).scroll(function () {
     var navbar = $("#prospectus_container .left_column");
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -78,48 +78,57 @@ $(function() {
 
 // Add chart
 $(function() {
-  var canvas = document.getElementsByTagName('canvas')[0];
+  var canvas = $('canvas')[0];
+
   // Check that canvas exists. Fixes error when loaded in other pages without a canvas.
   if (canvas) {
+    // canvas.css({'width': '900px', 'height': '450px'});
     canvas.width  = 900;
     canvas.height = 450;
+    var $tableRows = $('table.why_table.return_dollar tr:not(:first)');
+    var years = [];
+    var sp500Return = [];
+    var tulaReturn = [];
+    $tableRows.each(function(idx, row) {
+      years.push($(row).find('td').first().text().trim());
+      sp500Return.push(+$(row).find('td:nth-child(2)').text().trim().replace(/\$|,/g, ''));
+      tulaReturn.push(+$(row).find('td:nth-child(3)').text().trim().replace(/\$|,/g, ''));
+    });
     var lineChartData = {
-      labels : ["1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", 
-        "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014"],
-      datasets : [
+      labels: years,
+      datasets: [
         {
-          fillColor : "rgba(255,205,56,0.5)",
-          strokeColor : "rgba(255,205,56,1)",
-          pointColor : "rgba(255,205,56,1)",
-          pointStrokeColor : "#fff",
-          data : [10000, 14000, 23520, 25402, 32768, 50135, 41612, 41196, 30897, 40784, 49349, 
-            53790, 59707, 69260, 50560, 65728, 80188, 68962, 79306, 114994, 123618],
-          title : "TULA"
+          fillColor: "rgba(255,205,56,0.5)",
+          strokeColor: "rgba(255,205,56,1)",
+          pointColor: "rgba(255,205,56,1)",
+          pointStrokeColor: "#fff",
+          data: tulaReturn,
+          title: "TULA"
         },
         {
-          fillColor : "rgba(56,156,255,0.5)",
-          strokeColor : "rgba(56,156,255,1)",
-          pointColor : "rgba(56,156,255,1)",
-          pointStrokeColor : "#fff",
-          data : [10000, 13700, 16851, 22412, 28911, 34983, 31834, 28014, 21851, 28188, 31288, 
-            32853, 38109, 40015, 25209, 31764, 35575, 36287, 42093, 54721, 58059],
-          title : "S&P 500"
+          fillColor: "rgba(56,156,255,0.5)",
+          strokeColor: "rgba(56,156,255,1)",
+          pointColor: "rgba(56,156,255,1)",
+          pointStrokeColor: "#fff",
+          data: sp500Return,
+          title: "S&P 500"
         }
       ],
-    }
+    };
+    var initialInvestment = tulaReturn[0];
+    // Scale gets whacky when y-axis value is over 110,000 for some reason.
+    // Use scaleOverride to manually set scale on the y-axis.
     var options = {
-      datasetFill : true,
-      showLegend: true,
-      bezierCurve : true,
-      // Scale gets whacky when over 110,000 for some reason.
-      // Use scaleOverride to manually set scale on the y-axis.
-      scaleOverride: true,
-      scaleSteps: 12,
-      scaleStepWidth: 10000,
-      scaleStartValue: 10000
+      datasetFill:     true,
+      showLegend:      true,
+      bezierCurve:     true,
+      scaleOverride:   true,
+      scaleSteps:      12,
+      scaleStepWidth:  initialInvestment,
+      scaleStartValue: initialInvestment
     };
     new Chart(document.getElementById("myChart").getContext("2d")).Line(lineChartData, options);
-  };
+  }
 });
 
 $(function(){
@@ -134,4 +143,4 @@ $(function(){
     $('span#selected_year').text(selectedYear);
     $('#'+selectedYear+'_acquisitions').show();
   }
-})
+});
