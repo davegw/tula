@@ -18,49 +18,48 @@
         %th Year
         %th S&P 500
         %th TULA
-      - r = HistoricReturn.where("year >= ?", 1994).order(:year)
-      - r.each do |i|
+      - @historic_returns.each do |year|
         %tr
           %td 
-            #{i.year}
+            #{year.year}
           %td
-            #{(i.sp500_return*100).to_i}%
+            #{(year.sp500_return*100).to_i}%
           %td 
-            #{(i.tula_return*100).to_i}%
+            #{(year.tula_return*100).to_i}%
       %tr
         %td
-          #{r.count} Year Avg
+          #{@historic_returns.count} Year Avg
         %td
-          #{(r.average(:sp500_return)*100).round(1)}%
+          #{(@historic_returns.average(:sp500_return)*100).round(1)}%
         %td
-          #{(r.average(:tula_return)*100).round(1)}%
+          #{(@historic_returns.average(:tula_return)*100).round(1)}%
 
   #return_dollar_table_container
     %p
-      Return on $10,000 Invested at the end of 1994:
+      Return on #{number_to_currency(@initial_investment, :unit => "$", :precision => 0)} Invested at the end of 1994:
     %table.why_table.return_dollar
       %tr
         %th Year
         %th S&P 500
         %th TULA
-      - a = b = 10000
+      - sp500 = tula = @initial_investment
       %tr
         %td 
-          #{r[0].year-1}
+          #{@historic_returns[0].year-1}
         %td 
-          #{number_to_currency(a, :unit => "$", :precision => 0)}
+          #{number_to_currency(sp500, :unit => "$", :precision => 0)}
         %td
-          #{number_to_currency(b, :unit => "$", :precision => 0)}
-      - r.each do |i|
+          #{number_to_currency(tula, :unit => "$", :precision => 0)}
+      - @historic_returns.each do |year|
         %tr
           %td
-            #{i.year}
+            #{year.year}
           %td
-            - a = ((i.sp500_return+1)*a)
-            #{number_to_currency(a, :unit => "$", :precision => 0)}
+            - sp500 *= (year.sp500_return+1)
+            #{number_to_currency(sp500, :unit => "$", :precision => 0)}
           %td 
-            - b = ((i.tula_return+1)*b)
-            #{number_to_currency(b, :unit => "$", :precision => 0)}
+            - tula *= (year.tula_return+1)
+            #{number_to_currency(tula, :unit => "$", :precision => 0)}
   #return_disclosure
     %p.why_dislosure
       %span
