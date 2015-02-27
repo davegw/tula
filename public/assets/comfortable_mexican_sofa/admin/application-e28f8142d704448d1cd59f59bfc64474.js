@@ -1,0 +1,1 @@
+$(function(){$("#edit_post .form_element:nth(4)").hide()});
