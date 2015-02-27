@@ -1,19 +1,21 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// the compiled file.
-//
-// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
-// GO AFTER THE REQUIRES BELOW.
+/**
+ *This is a manifest file that'll be compiled into application.js, which will include all the files
+ * listed below.
+ *
+ * Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+ * or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
+ *
+ * It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+ * the compiled file.
+ *
+ * WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
+ * GO AFTER THE REQUIRES BELOW.
+ */
 
 
 // Pulse the coming soon text.
 $(function() {
-  $('#coming_soon h2').effect("pulsate", {times:2}, 10000, function() {
+  $('#coming_soon h2').effect('pulsate', {times:2}, 10000, function() {
     // Change the font color to orange.
     $('#coming_soon h1 span').animate({color: '#FFA500'}, 2500);
   });
@@ -26,17 +28,17 @@ $(function() {
 
 // Locks the left column navbar from scrolling on the prospectus page.
 $(function() {
-  var max_scroll = 160;
+  var maxScroll = 160;
   $(window).scroll(function () {
-    var navbar = $("#prospectus_container .left_column");
+    var navbar = $('#prospectus_container .left_column');
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    if(scrollTop > max_scroll && !navbar.is(".navbar_fixed")) {
-      console.log("go floated");
-      navbar.addClass("navbar_fixed");
+    if(scrollTop > maxScroll && !navbar.is('.navbar_fixed')) {
+      console.log('go floated');
+      navbar.addClass('navbar_fixed');
     }
-    else if(scrollTop < max_scroll && navbar.is(".navbar_fixed")) {
-      console.log("return to normal");
-      navbar.removeClass("navbar_fixed");
+    else if(scrollTop < maxScroll && navbar.is('.navbar_fixed')) {
+      console.log('return to normal');
+      navbar.removeClass('navbar_fixed');
     }
   });
 });
@@ -66,7 +68,7 @@ $(function() {
       $(this).addClass('sub_nav');
       $(this).append(html);
     }, function() {
-      $(this).children("ul").remove();
+      $(this).children('ul').remove();
       $(this).removeClass('sub_nav');
     }
   );
@@ -94,20 +96,20 @@ $(function() {
       labels: years,
       datasets: [
         {
-          fillColor: "rgba(255,205,56,0.5)",
-          strokeColor: "rgba(255,205,56,1)",
-          pointColor: "rgba(255,205,56,1)",
-          pointStrokeColor: "#fff",
+          fillColor: 'rgba(255,205,56,0.5)',
+          strokeColor: 'rgba(255,205,56,1)',
+          pointColor: 'rgba(255,205,56,1)',
+          pointStrokeColor: '#fff',
           data: tulaReturn,
-          title: "TULA"
+          title: 'TULA'
         },
         {
-          fillColor: "rgba(56,156,255,0.5)",
-          strokeColor: "rgba(56,156,255,1)",
-          pointColor: "rgba(56,156,255,1)",
-          pointStrokeColor: "#fff",
+          fillColor: 'rgba(56,156,255,0.5)',
+          strokeColor: 'rgba(56,156,255,1)',
+          pointColor: 'rgba(56,156,255,1)',
+          pointStrokeColor: '#fff',
           data: sp500Return,
-          title: "S&P 500"
+          title: 'S&P 500'
         }
       ],
     };
@@ -123,20 +125,20 @@ $(function() {
       scaleStepWidth:  initialInvestment,
       scaleStartValue: initialInvestment
     };
-    new Chart(document.getElementById("myChart").getContext("2d")).Line(lineChartData, options);
+    new Chart(document.getElementById('myChart').getContext('2d')).Line(lineChartData, options);
   }
 });
 
-$(function(){
-  displayYear();
-  $('#acquisitions_container select').on('change', function() {
-    displayYear();
-  });
-
+$(function() {
   function displayYear(){
     var selectedYear = $('#acquisitions_container select').val();
     $('.acquisition_year').hide();
     $('span#selected_year').text(selectedYear);
     $('#'+selectedYear+'_acquisitions').show();
   }
+
+  displayYear();
+  $('#acquisitions_container select').on('change', function() {
+    displayYear();
+  });
 });
