@@ -1,0 +1,20 @@
+%h1 Update Acquisition Data
+
+.col-md-6
+  = form_for @acquisition, url: admin_acquisition_path, method: :put do |f|
+    .form-group
+      = f.label :year
+      = f.select :year, options_for_select(@select_options, @acquisition.year), :class => 'form-control'
+
+    .form-group
+      = f.label :company
+      = f.text_field :company, :value => @acquisition.company, :class => 'form-control'
+    .form-group
+      = f.label 'Price at beginning of Year'
+      = f.text_field :initial_price, :value => @acquisition.initial_price, :class => 'form-control'
+
+    .form-group
+      = f.label 'Buy Out Price'
+      = f.text_field :acquisition_price, :value => @acquisition.acquisition_price, :class => 'form-control'
+
+    = f.submit 'Update Acquisition', :class => 'btn btn-primary'
