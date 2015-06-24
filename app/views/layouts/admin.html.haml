@@ -7,6 +7,7 @@
     = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'
     = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js'
     = javascript_include_tag 'application'
+    = javascript_include_tag 'admin'
     = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'
     = yield :javascript_includes
     = csrf_meta_tags
@@ -17,11 +18,11 @@
         %nav.navbar.navbar-default
           .container-fluid
             .navbar-header
-              %a.navbar-brand{:href => acquisitions_path} TULA Admin
+              %a.navbar-brand{:href => admin_acquisitions_path} TULA Admin
             .collapse.navbar-collapse
               %ul.nav.navbar-nav
                 %li
-                  = link_to 'Acquisitions', acquisitions_path
+                  = link_to 'Acquisitions', admin_acquisitions_path
               %ul.nav.navbar-nav.navbar-right
                 %li
                   = link_to 'Back to TULA', home_path

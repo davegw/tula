@@ -63,6 +63,10 @@ Tula::Application.routes.draw do
   match '/contact' => 'home#contact', :as => :contact
   match '/terms' => 'home#terms', :as => :terms
 
+  namespace :admin do
+    resources :acquisitions
+  end
+
   ComfyBlog::Routing.admin
   ComfyBlog::Routing.content
   ComfortableMexicanSofa::Routing.admin(:path => '/cms-admin')
