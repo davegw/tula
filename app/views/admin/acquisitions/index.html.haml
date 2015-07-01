@@ -1,5 +1,8 @@
 - @body_id = 'admin_acquisitions_index'
 
+.text-center
+  = link_to 'Add New Acquisition', new_admin_acquisition_path, :class => 'btn btn-success text-right'
+
 - @years.each do |year|
   %h3.text-center
     = year.to_s + ' Acquisitions'

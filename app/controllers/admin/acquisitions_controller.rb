@@ -1,9 +1,15 @@
 class Admin::AcquisitionsController < ApplicationController
   layout 'admin'
+  include Admin::AcquisitionHelper
 
   def index
     @acquisitions = Acquisition.all.group_by(&:year)
     @years = @acquisitions.keys.sort.reverse
+  end
+
+  def new
+    @select_options = (2013..2015).map { |year| [year.to_s, year] }.sort.reverse
+    @acquisition = Acquisition.new
   end
 
   def edit
@@ -27,15 +33,11 @@ class Admin::AcquisitionsController < ApplicationController
   end
 
   def create
-    data = params
-    data[:year] = params[:acquisition_date].year
-    data[:return] = return_calculator(params[:acquisition_price], params[:initial_price])
-    @acquisition = Acquisition.create(data)
+    initial_price                 = params[:acquisition][:initial_price]
+    acquisition_price             = params[:acquisition][:acquisition_price]
+    params[:acquisition][:return] = return_calculator(initial_price, acquisition_price)
+    Acquisition.create(params[:acquisition])
 
     redirect_to :action => :index
-  end
-
-  def return_calculator(initial, final)
-    (final.to_f - initial.to_f) / initial.to_f
   end
 end

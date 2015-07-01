@@ -9,6 +9,7 @@
     .form-group
       = f.label :company
       = f.text_field :company, :value => @acquisition.company, :class => 'form-control'
+
     .form-group
       = f.label 'Price at beginning of Year'
       = f.text_field :initial_price, :value => @acquisition.initial_price, :class => 'form-control'
