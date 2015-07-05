@@ -11,6 +11,74 @@
  *        AcquisitionDetails
  */
 
+var tempData = {
+  years: [2013, 2014, 2015],
+  acquisitions: {
+    '2013': [
+      {
+        id: 3,
+        year: 2013,
+        company: 'Microsoft',
+        price: 12.23,
+        buyout: 16.64,
+        return: 0.4349
+      },
+      {
+        id: 3,
+        year: 2013,
+        company: 'Amazon',
+        price: 12.23,
+        buyout: 16.64,
+        return: 0.4349
+      }
+    ],
+    '2014': [
+      {
+        id: 3,
+        year: 2014,
+        company: 'Burgundy',
+        price: 12.23,
+        buyout: 16.64,
+        return: 0.4349
+      },
+      {
+        id: 3,
+        year: 2014,
+        company: 'Sun',
+        price: 12.23,
+        buyout: 16.64,
+        return: 0.4349
+      }
+    ],
+    '2015': [
+      {
+        id: 3,
+        year: 2015,
+        company: 'DGW',
+        price: 12.23,
+        buyout: 16.64,
+        return: 0.4349
+      },
+      {
+        id: 3,
+        year: 2015,
+        company: 'Yolo',
+        price: 12.23,
+        buyout: 16.64,
+        return: 0.4349
+      },
+      {
+        id: 3,
+        year: 2015,
+        company: 'Apple',
+        price: 12.23,
+        buyout: 16.64,
+        return: 0.4349
+      }
+    ]
+  }
+};
+
 var AcquisitionCreateButton = React.createClass({
   render: function() {
     return (
@@ -25,7 +93,17 @@ var AcquisitionCreateButton = React.createClass({
 
 var AcquisitionYear = React.createClass({
   render: function() {
-    return (<h3 className='text-center'>2013 Acquisitions</h3>);
+    return (<h3 className='text-center'>{this.props.year} Acquisitions</h3>);
+  }
+});
+
+var AcquisitionDeleteButton = React.createClass({
+  render: function() {
+    return (
+      <a className='btn btn-danger' href='#'>
+        Delete
+      </a>
+    );
   }
 });
 
@@ -33,13 +111,19 @@ var AcquisitionDetails = React.createClass({
   render: function() {
     return (
       <tr>
-        <td className='text-center'>Blah</td>
-        <td className='text-center'>Blah</td>
-        <td className='text-center'>Blah</td>
-        <td className='text-center'>Blah</td>
-        <td className='text-center'>Blah</td>
-        <td className='text-center'>Blah</td>
-        <td className='text-center'>Blah</td>
+        <td className='text-center'>{this.props.year}</td>
+        <td className='text-center'>{this.props.company}</td>
+        <td className='text-center'>{this.props.initialPrice}</td>
+        <td className='text-center'>{this.props.acquisitionPrice}</td>
+        <td className='text-center'>{this.props.return}</td>
+        <td className='text-center'>
+          <a href={'/admin/acquisitions/' + this.props.id + '/edit'}>Edit</a>
+        </td>
+        <td className='text-center'>
+          <AcquisitionDeleteButton
+            id={this.props.id}
+          />
+        </td>
       </tr>
     );
   }
@@ -47,9 +131,16 @@ var AcquisitionDetails = React.createClass({
 
 var AcquisitionTable = React.createClass({
   render: function() {
-    var acquisitions = [1, 2, 3, 4].map(function() {
+    var acquisitions = this.props.acquisitions.map(function(acquisition) {
       return (
-        <AcquisitionDetails />
+        <AcquisitionDetails
+          id={acquisition.id}
+          year={acquisition.year}
+          company={acquisition.company}
+          initialPrice={acquisition.price}
+          acquisitionPrice={acquisition.buyout}
+          return={acquisition.return}
+        />
       );
     });
 
@@ -74,8 +165,8 @@ var AcquisitionYearContainer = React.createClass({
   render: function() {
     return (
       <div>
-        <AcquisitionYear />
-        <AcquisitionTable />
+        <AcquisitionYear year={this.props.year}/>
+        <AcquisitionTable acquisitions={tempData.acquisitions[this.props.year]}/>
       </div>
     );
   }
@@ -83,9 +174,9 @@ var AcquisitionYearContainer = React.createClass({
 
 var AcquisitionContainer = React.createClass({
   render: function() {
-    var years = [2013, 2014, 2015].map(function() {
+    var years = tempData.years.map(function(year) {
       return (
-        <AcquisitionYearContainer />
+        <AcquisitionYearContainer year={year}/>
       );
     });
 
