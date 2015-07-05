@@ -15,7 +15,7 @@ var AcquisitionCreateButton = React.createClass({
   render: function() {
     return (
       <div className='text-center'>
-        <a className='btn btn-success text-right' href='admin/acquisitions/new'>
+        <a className='btn btn-success' href='/admin/acquisitions/new'>
           Add New Acquisition
         </a>
       </div>
@@ -98,4 +98,4 @@ var AcquisitionContainer = React.createClass({
   }
 });
 
-React.render(<AcquisitionContainer />, document.getElementById('admin_acquisitions_index'));
+React.render(<AcquisitionContainer />, document.getElementById('admin-acquisitions-index-container'));
