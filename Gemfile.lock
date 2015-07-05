@@ -64,6 +64,7 @@ GEM
       paperclip (>= 3.4.0)
       rails (~> 3.1)
       sass-rails (>= 3.1.0)
+    connection_pool (2.2.0)
     erubis (2.7.0)
     execjs (2.3.0)
     formatted_form (2.1.2)
@@ -126,6 +127,13 @@ GEM
     rake (10.4.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    react-rails (1.0.0)
+      coffee-script-source (~> 1.8)
+      connection_pool
+      execjs
+      rails (>= 3.1)
+      react-source (~> 0.13)
+    react-source (0.13.3)
     sass (3.4.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -159,6 +167,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.6)
   rake
+  react-rails (~> 1.0)
   sass-rails (~> 3.2.3)
   test-unit
   uglifier (>= 1.0.3)
