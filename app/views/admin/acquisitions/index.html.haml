@@ -1,38 +1,5 @@
+%head
+  = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/react/0.13.1/react.js'
+  = javascript_include_tag 'components/acquisitions'
+
 - @body_id = 'admin_acquisitions_index'
-
-.text-center
-  = link_to 'Add New Acquisition', new_admin_acquisition_path, :class => 'btn btn-success text-right'
-
-- @years.each do |year|
-  %h3.text-center
-    = year.to_s + ' Acquisitions'
-  %table.table.table-striped
-    %tr
-      %th.text-center
-        Acquisition Year
-      %th.text-center
-        Company
-      %th.text-center
-        = "Price at 1/1/#{year}"
-      %th.text-center
-        Buy Out Price
-      %th.text-center
-        Return
-      %th.text-center
-      %th.text-center
-    - @acquisitions[year].each do |acquisition|
-      %tr
-        %td.text-center
-          = acquisition.year
-        %td.text-center
-          = acquisition.company
-        %td.text-center
-          = number_to_currency(acquisition.initial_price, :precision => 2)
-        %td.text-center
-          = number_to_currency(acquisition.acquisition_price, :precision => 2)
-        %td.text-center
-          = "#{((acquisition.return)*100).round(1)}%"
-        %td.text-center
-          = link_to 'Edit', edit_admin_acquisition_path(acquisition.id)
-        %td.text-center
-          = button_to 'Delete', admin_acquisition_path(acquisition.id), method: :delete, onclick: "return confirm('Are you sure?')", :class => 'btn btn-danger'
