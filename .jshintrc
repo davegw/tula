@@ -38,7 +38,7 @@
   "newcap": true,
 
   // Enforce use of single quotation marks for strings.
-  "quotmark": "single",
+  // "quotmark": "single",
 
   // Prohibit trailing whitespace.
   "trailing": true,
@@ -47,11 +47,17 @@
   "undef": true,
 
   // Warn when variables are defined but never used.
-  "unused": true
+  "unused": true,
 
   // Enforce line length to 80 characters
   // "maxlen": 80,
 
   // Enforce placing 'use strict' at the top function scope
-  // "strict": true
+  // "strict": true,
+
+  // Custom Globals
+  "globals"       : {        // additional predefined global variables
+    // React
+    "React": true
+  }
 }
