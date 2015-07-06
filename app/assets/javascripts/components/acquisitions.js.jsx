@@ -43,15 +43,15 @@ var AcquisitionDeleteButton = React.createClass({
   }
 });
 
-var AcquisitionDetails = React.createClass({
+var AcquisitionDetail = React.createClass({
   render: function() {
     return (
       <tr>
         <td className='text-center'>{this.props.year}</td>
         <td className='text-center'>{this.props.company}</td>
-        <td className='text-center'>{this.props.initialPrice}</td>
-        <td className='text-center'>{this.props.acquisitionPrice}</td>
-        <td className='text-center'>{this.props.return}</td>
+        <td className='text-center'>{'$' + (+this.props.initialPrice).toFixed(2)}</td>
+        <td className='text-center'>{'$' + (+this.props.acquisitionPrice).toFixed(2)}</td>
+        <td className='text-center'>{(this.props.return * 100).toFixed(1) + '%'}</td>
         <td className='text-center'>
           <a href={'/admin/acquisitions/' + this.props.id + '/edit'}>Edit</a>
         </td>
@@ -67,19 +67,37 @@ var AcquisitionDetails = React.createClass({
   }
 });
 
+var AcquisitionForm = React.createClass({
+  render: function() {
+    return (
+      <form>
+        <tr>
+          <td><input type='text-field'/></td>
+          <td><input type='text-field'/></td>
+          <td><input type='text-field'/></td>
+          <td><input type='text-field'/></td>
+          <td><input type='text-field'/></td>
+          <td><button className='btn btn-primary' type='submit'>Update</button></td>
+          <td><button className='btn btn-danger'>Cancel</button></td>
+        </tr>
+      </form>
+    );
+  }
+});
+
 var AcquisitionTable = React.createClass({
   render: function() {
     var acquisitionState = this.props.acquisitions[this.props.year] || [];
     var acquisitions = acquisitionState.map(function(acquisition) {
       return (
-        <AcquisitionDetails
+        <AcquisitionDetail
           key={acquisition.id}
           id={acquisition.id}
           year={acquisition.year}
           company={acquisition.company}
-          initialPrice={'$' + (+acquisition.initial_price).toFixed(2)}
-          acquisitionPrice={'$' + (+acquisition.acquisition_price).toFixed(2)}
-          return={(acquisition.return * 100).toFixed(1) + '%'}
+          initialPrice={acquisition.initial_price}
+          acquisitionPrice={acquisition.acquisition_price}
+          return={acquisition.return}
           handleDelete={this.props.handleDelete}
         />
       );
