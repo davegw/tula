@@ -53,7 +53,7 @@ var AcquisitionDetail = React.createClass({
         <td className='text-center'>{'$' + (+this.props.acquisitionPrice).toFixed(2)}</td>
         <td className='text-center'>{(this.props.return * 100).toFixed(1) + '%'}</td>
         <td className='text-center'>
-          <a href={'/admin/acquisitions/' + this.props.id + '/edit'}>Edit</a>
+          <a className='btn btn-link' onClick={this.props.toggleEdit}>Edit</a>
         </td>
         <td className='text-center'>
           <AcquisitionDeleteButton
@@ -68,20 +68,106 @@ var AcquisitionDetail = React.createClass({
 });
 
 var AcquisitionForm = React.createClass({
+  handleEdit: function() {
+    var updatedAcquisition = {
+      year: React.findDOMNode(this.refs.year).value.trim(),
+      company: React.findDOMNode(this.refs.company).value.trim(),
+      initial_price: React.findDOMNode(this.refs.initialPrice).value.trim(),
+      acquisition_price: React.findDOMNode(this.refs.acquisitionPrice).value.trim()
+    };
+    this.props.handleEdit(updatedAcquisition);
+  },
+
   render: function() {
     return (
-      <form>
-        <tr>
-          <td><input type='text-field'/></td>
-          <td><input type='text-field'/></td>
-          <td><input type='text-field'/></td>
-          <td><input type='text-field'/></td>
-          <td><input type='text-field'/></td>
-          <td><button className='btn btn-primary' type='submit'>Update</button></td>
-          <td><button className='btn btn-danger'>Cancel</button></td>
-        </tr>
-      </form>
+      <tr>
+        <form action={'/admin/acquisitions/' + this.props.id + '/edit'}  method='PUT'>
+          <td className='text-center'><input type='text' defaultValue={this.props.year} className='form-control text-center' ref='year'/></td>
+          <td className='text-center'><input type='text' defaultValue={this.props.company} className='form-control text-center' ref='company'/></td>
+          <td className='text-center'><input type='text' defaultValue={this.props.initialPrice} className='form-control text-center' ref='initialPrice'/></td>
+          <td className='text-center'><input type='text' defaultValue={this.props.acquisitionPrice} className='form-control text-center' ref='acquisitionPrice'/></td>
+          <td className='text-center'><input type='text' defaultValue={this.props.return} className='form-control text-center' disabled/></td>
+          <td className='text-center'><a className='btn btn-link' onClick={this.props.toggleEdit}>Cancel</a></td>
+          <td className='text-center'>
+            <button className='btn btn-primary' type='submit' onClick={this.handleEdit}>
+              Update
+            </button>
+          </td>
+        </form>
+      </tr>
     );
+  }
+});
+
+var AcquisitionRow = React.createClass({
+  getInitialState: function() {
+    return {
+      form: false,
+      year: this.props.year,
+      company: this.props.company,
+      initial_price: this.props.initialPrice,
+      acquisition_price: this.props.acquisitionPrice,
+      return: this.props.return
+    };
+  },
+
+  toggleEdit: function() {
+    this.setState({
+      form: !this.state.form
+    });
+  },
+
+  updateAcquisition: function(updatedAcquisition) {
+    $.ajax({
+      url: '/admin/acquisitions/' + this.props.id,
+      type: 'PUT',
+      data: {
+        acquisition: updatedAcquisition
+      },
+      success: function(data) {
+        this.setState({
+          return: data.return
+        });
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(status, err.toString());
+      }
+    });
+    updatedAcquisition.form = false;
+    this.setState(updatedAcquisition);
+  },
+
+  render: function() {
+    if (this.state.form) {
+      return (
+        <AcquisitionForm
+          key={this.props.id}
+          id={this.props.id}
+          year={this.state.year}
+          company={this.state.company}
+          initialPrice={this.state.initial_price}
+          acquisitionPrice={this.state.acquisition_price}
+          return={this.state.return}
+          handleEdit={this.updateAcquisition}
+          toggleEdit={this.toggleEdit}
+        />
+      );
+    }
+    else {
+      return (
+        <AcquisitionDetail
+          key={this.props.id}
+          id={this.props.id}
+          year={this.state.year}
+          company={this.state.company}
+          initialPrice={this.state.initial_price}
+          acquisitionPrice={this.state.acquisition_price}
+          return={this.state.return}
+          handleDelete={this.props.handleDelete}
+          toggleEdit={this.toggleEdit}
+        />
+      );
+    }
   }
 });
 
@@ -90,7 +176,7 @@ var AcquisitionTable = React.createClass({
     var acquisitionState = this.props.acquisitions[this.props.year] || [];
     var acquisitions = acquisitionState.map(function(acquisition) {
       return (
-        <AcquisitionDetail
+        <AcquisitionRow
           key={acquisition.id}
           id={acquisition.id}
           year={acquisition.year}
@@ -168,7 +254,7 @@ var AcquisitionContainer = React.createClass({
     });
   },
 
-  handleDelete: function(id, year) {
+  deleteAcquisition: function(id, year) {
     this.state.acquisitions[year] = this.state.acquisitions[year].filter(function(acquisition) {
       return acquisition.id !== id;
     });
@@ -193,7 +279,7 @@ var AcquisitionContainer = React.createClass({
           key={idx}
           year={year}
           acquisitions={this.state.acquisitions}
-          handleDelete={this.handleDelete}
+          handleDelete={this.deleteAcquisition}
         />
       );
     }.bind(this));

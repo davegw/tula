@@ -3,7 +3,7 @@ class Admin::AcquisitionsController < ApplicationController
   include Admin::AcquisitionHelper
 
   def index
-    @acquisitions = Acquisition.all.group_by(&:year)
+    @acquisitions = Acquisition.all.sort_by(&:company).group_by(&:year)
     @years = @acquisitions.keys.sort.reverse
 
     render :json => { :years => @years, :acquisitions => @acquisitions }
@@ -25,7 +25,7 @@ class Admin::AcquisitionsController < ApplicationController
     data[:return] = return_calculator(data[:acquisition_price], data[:initial_price])
     acquisition.update_attributes(data)
 
-    redirect_to :action => :index
+    render :json => data
   end
 
   def destroy
