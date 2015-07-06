@@ -172,18 +172,48 @@ var AcquisitionYearContainer = React.createClass({
   }
 });
 
+var years = [];
 var AcquisitionContainer = React.createClass({
+  getInialState: function() {
+    return {
+      acquisitions: []
+    };
+  },
+
+  componentDidMount: function() {
+    this.getAcquisitionData();
+  },
+
+  getAcquisitionData: function() {
+    $.ajax({
+      url: '/admin/acquisitions',
+      dataType: 'json',
+      type: 'GET',
+      success: function(data) {
+        years = data.years;
+        this.setState({
+          acquisitions: data.acquisitions
+        });
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(status, err.toString());
+      }
+    });
+  },
+
   render: function() {
-    var years = tempData.years.map(function(year) {
+    var yearComponents = years.map(function(year, idx) {
       return (
-        <AcquisitionYearContainer year={year}/>
+        <AcquisitionYearContainer
+          key={idx}
+          year={year}
+        />
       );
     });
-
     return(
       <div>
         <AcquisitionCreateButton />
-        {years}
+        {yearComponents}
       </div>
     );
   }

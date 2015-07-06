@@ -62,6 +62,7 @@ Tula::Application.routes.draw do
   match '/investment-prospectus' => 'home#prospectus', :as => :prospectus
   match '/contact' => 'home#contact', :as => :contact
   match '/terms' => 'home#terms', :as => :terms
+  get '/admin' => 'admin#index', :as => :admin
 
   namespace :admin do
     resources :acquisitions

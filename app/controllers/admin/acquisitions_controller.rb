@@ -5,6 +5,8 @@ class Admin::AcquisitionsController < ApplicationController
   def index
     @acquisitions = Acquisition.all.group_by(&:year)
     @years = @acquisitions.keys.sort.reverse
+
+    render :json => { :years => @years, :acquisitions => @acquisitions }
   end
 
   def new
