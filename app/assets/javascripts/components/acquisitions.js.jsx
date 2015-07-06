@@ -1,14 +1,14 @@
 /**
  * AcquisitionContainer
  *  CreateButton
- *    AcquisitionYear
- *      AcquisitionTable
- *        AcquisitionDetails
- *        AcquisitionDetails
- *    AcquisitionYear
- *      AcquisitionTable
- *        AcquisitionDetails
- *        AcquisitionDetails
+ *  AcquisitionYear
+ *    AcquisitionTable
+ *      AcquisitionDetails
+ *      AcquisitionDetails
+ *  AcquisitionYear
+ *    AcquisitionTable
+ *      AcquisitionDetails
+ *      AcquisitionDetails
  */
 
 var AcquisitionCreateButton = React.createClass({
@@ -30,11 +30,15 @@ var AcquisitionYear = React.createClass({
 });
 
 var AcquisitionDeleteButton = React.createClass({
+  clickHandler: function() {
+    this.props.handleDelete(this.props.id, this.props.year);
+  },
+
   render: function() {
     return (
-      <a className='btn btn-danger' href='#'>
+      <div className='btn btn-danger' onClick={this.clickHandler}>
         Delete
-      </a>
+      </div>
     );
   }
 });
@@ -54,6 +58,8 @@ var AcquisitionDetails = React.createClass({
         <td className='text-center'>
           <AcquisitionDeleteButton
             id={this.props.id}
+            year={this.props.year}
+            handleDelete={this.props.handleDelete}
           />
         </td>
       </tr>
@@ -71,25 +77,30 @@ var AcquisitionTable = React.createClass({
           id={acquisition.id}
           year={acquisition.year}
           company={acquisition.company}
-          initialPrice={acquisition.price}
-          acquisitionPrice={acquisition.buyout}
-          return={acquisition.return}
+          initialPrice={'$' + (+acquisition.initial_price).toFixed(2)}
+          acquisitionPrice={'$' + (+acquisition.acquisition_price).toFixed(2)}
+          return={(acquisition.return * 100).toFixed(1) + '%'}
+          handleDelete={this.props.handleDelete}
         />
       );
-    });
+    }.bind(this));
 
     return (
       <table className='table table-striped'>
-        <tr>
-          <th className='text-center'>Acquisition Year</th>
-          <th className='text-center'>Company</th>
-          <th className='text-center'>Price at 1/1/00</th>
-          <th className='text-center'>Buy Out Price</th>
-          <th className='text-center'>Return</th>
-          <th className='text-center'></th>
-          <th className='text-center'></th>
-        </tr>
-        {acquisitions}
+        <thead>
+          <tr>
+            <th className='text-center'>Acquisition Year</th>
+            <th className='text-center'>Company</th>
+            <th className='text-center'>Price at 1/1/00</th>
+            <th className='text-center'>Buy Out Price</th>
+            <th className='text-center'>Return</th>
+            <th className='text-center'></th>
+            <th className='text-center'></th>
+          </tr>
+        </thead>
+        <tbody>
+          {acquisitions}
+        </tbody>
       </table>
     );
   }
@@ -103,6 +114,7 @@ var AcquisitionYearContainer = React.createClass({
         <AcquisitionTable
           year={this.props.year}
           acquisitions={this.props.acquisitions}
+          handleDelete={this.props.handleDelete}
         />
       </div>
     );
@@ -138,6 +150,24 @@ var AcquisitionContainer = React.createClass({
     });
   },
 
+  handleDelete: function(id, year) {
+    this.state.acquisitions[year] = this.state.acquisitions[year].filter(function(acquisition) {
+      return acquisition.id !== id;
+    });
+    this.setState({
+      acquisitions: this.state.acquisitions
+    });
+
+    $.ajax({
+      url: '/admin/acquisitions/' + id,
+      dataType: 'json',
+      type: 'DELETE',
+      error: function(xhr, status, err) {
+        console.error(status, err.toString());
+      }
+    });
+  },
+
   render: function() {
     var yearComponents = years.map(function(year, idx) {
       return (
@@ -145,6 +175,7 @@ var AcquisitionContainer = React.createClass({
           key={idx}
           year={year}
           acquisitions={this.state.acquisitions}
+          handleDelete={this.handleDelete}
         />
       );
     }.bind(this));

@@ -31,7 +31,7 @@ class Admin::AcquisitionsController < ApplicationController
   def destroy
     Acquisition.find(params[:id]).destroy
 
-    redirect_to :action => :index
+    render :json => { :success => true }
   end
 
   def create
