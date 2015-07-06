@@ -11,74 +11,6 @@
  *        AcquisitionDetails
  */
 
-var tempData = {
-  years: [2013, 2014, 2015],
-  acquisitions: {
-    '2013': [
-      {
-        id: 3,
-        year: 2013,
-        company: 'Microsoft',
-        price: 12.23,
-        buyout: 16.64,
-        return: 0.4349
-      },
-      {
-        id: 3,
-        year: 2013,
-        company: 'Amazon',
-        price: 12.23,
-        buyout: 16.64,
-        return: 0.4349
-      }
-    ],
-    '2014': [
-      {
-        id: 3,
-        year: 2014,
-        company: 'Burgundy',
-        price: 12.23,
-        buyout: 16.64,
-        return: 0.4349
-      },
-      {
-        id: 3,
-        year: 2014,
-        company: 'Sun',
-        price: 12.23,
-        buyout: 16.64,
-        return: 0.4349
-      }
-    ],
-    '2015': [
-      {
-        id: 3,
-        year: 2015,
-        company: 'DGW',
-        price: 12.23,
-        buyout: 16.64,
-        return: 0.4349
-      },
-      {
-        id: 3,
-        year: 2015,
-        company: 'Yolo',
-        price: 12.23,
-        buyout: 16.64,
-        return: 0.4349
-      },
-      {
-        id: 3,
-        year: 2015,
-        company: 'Apple',
-        price: 12.23,
-        buyout: 16.64,
-        return: 0.4349
-      }
-    ]
-  }
-};
-
 var AcquisitionCreateButton = React.createClass({
   render: function() {
     return (
@@ -131,9 +63,11 @@ var AcquisitionDetails = React.createClass({
 
 var AcquisitionTable = React.createClass({
   render: function() {
-    var acquisitions = this.props.acquisitions.map(function(acquisition) {
+    var acquisitionState = this.props.acquisitions[this.props.year] || [];
+    var acquisitions = acquisitionState.map(function(acquisition) {
       return (
         <AcquisitionDetails
+          key={acquisition.id}
           id={acquisition.id}
           year={acquisition.year}
           company={acquisition.company}
@@ -166,7 +100,10 @@ var AcquisitionYearContainer = React.createClass({
     return (
       <div>
         <AcquisitionYear year={this.props.year}/>
-        <AcquisitionTable acquisitions={tempData.acquisitions[this.props.year]}/>
+        <AcquisitionTable
+          year={this.props.year}
+          acquisitions={this.props.acquisitions}
+        />
       </div>
     );
   }
@@ -174,9 +111,9 @@ var AcquisitionYearContainer = React.createClass({
 
 var years = [];
 var AcquisitionContainer = React.createClass({
-  getInialState: function() {
+  getInitialState: function() {
     return {
-      acquisitions: []
+      acquisitions: {}
     };
   },
 
@@ -207,9 +144,10 @@ var AcquisitionContainer = React.createClass({
         <AcquisitionYearContainer
           key={idx}
           year={year}
+          acquisitions={this.state.acquisitions}
         />
       );
-    });
+    }.bind(this));
     return(
       <div>
         <AcquisitionCreateButton />
