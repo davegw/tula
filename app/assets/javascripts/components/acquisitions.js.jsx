@@ -15,7 +15,7 @@ var AcquisitionCreateButton = React.createClass({
   render: function() {
     return (
       <div className='text-center'>
-        <a className='btn btn-success' href='/admin/acquisitions/new'>
+        <a className='btn btn-success' href='/admin/new'>
           Add New Acquisition
         </a>
       </div>
