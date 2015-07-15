@@ -14,7 +14,7 @@ var SelectorOption = React.createClass({
 
 var YearSelector = React.createClass({
   render: function() {
-    var selectorOptions = [1, 2, 3].map(function(year, idx) {
+    var selectorOptions = this.props.yearOptions.map(function(year, idx) {
       return <SelectorOption key={idx} optionValue={year} />;
     });
     return (
@@ -29,16 +29,10 @@ var YearSelector = React.createClass({
 });
 
 var NewAcquisitionForm = React.createClass({
-  getInitialState: function() {
-    return {
-      year: '2'
-    };
-  },
-
   handleSubmit: function(e) {
     e.preventDefault();
     var newAcquistion = {
-      year: this.state.year,
+      year: this.props.year,
       company: React.findDOMNode(this.refs.company).value.trim(),
       initial_price: React.findDOMNode(this.refs.initial_price).value.trim(),
       acquisition_price: React.findDOMNode(this.refs.acquisition_price).value.trim(),
@@ -46,11 +40,6 @@ var NewAcquisitionForm = React.createClass({
     console.log(newAcquistion);
   },
 
-  yearSelection: function(e) {
-    this.setState({
-      year: e.target.value
-    });
-  },
 
   render: function() {
     var textFormFields = [
@@ -70,9 +59,14 @@ var NewAcquisitionForm = React.createClass({
         </div>
       );
     });
+
     return (
       <form onSubmit={this.handleSubmit}>
-        <YearSelector defaultYear={this.state.year} changeHandler={this.yearSelection} />
+        <YearSelector
+          defaultYear={this.props.year}
+          changeHandler={this.props.yearSelection}
+          yearOptions={this.props.yearOptions}
+        />
         {textFormFields}
         <input type='submit' className='btn btn-success' value='Add New Acquisition' />
       </form>
@@ -81,11 +75,49 @@ var NewAcquisitionForm = React.createClass({
 });
 
 var NewAcquisition = React.createClass({
+  getInitialState: function() {
+    return {
+      yearOptions: [],
+      year: ''
+    };
+  },
+
+  yearSelection: function(e) {
+    this.setState({
+      year: e.target.value
+    });
+  },
+
+  componentDidMount: function() {
+    this.getAcquisitionData();
+  },
+
+  getAcquisitionData: function() {
+    $.ajax({
+      url: '/admin/acquisitions/new',
+      dataType: 'json',
+      type: 'GET',
+      success: function(data) {
+        this.setState({
+          yearOptions: data.year_options,
+          year: data.year_options[0]
+        });
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(status, err.toString());
+      }
+    });
+  },
+
   render: function() {
     return (
       <div>
         <h1>Create New Acquisition</h1>
-        <NewAcquisitionForm />
+        <NewAcquisitionForm
+          yearOptions={this.state.yearOptions}
+          yearSelection={this.yearSelection}
+          year={this.state.year}
+        />
       </div>
     );
   }

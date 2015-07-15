@@ -10,8 +10,8 @@ class Admin::AcquisitionsController < ApplicationController
   end
 
   def new
-    @select_options = (2013..2015).map { |year| [year.to_s, year] }.sort.reverse
-    @acquisition = Acquisition.new
+    select_options = (2013..Time.now.year).sort.reverse.map(&:to_s)
+    render :json => { :year_options => select_options }
   end
 
   def edit
