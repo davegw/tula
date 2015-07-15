@@ -40,6 +40,6 @@ class Admin::AcquisitionsController < ApplicationController
     params[:acquisition][:return] = return_calculator(initial_price, acquisition_price)
     Acquisition.create(params[:acquisition])
 
-    redirect_to :action => :index
+    render :json => { :success => true }
   end
 end

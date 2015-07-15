@@ -35,9 +35,22 @@ var NewAcquisitionForm = React.createClass({
       year: this.props.year,
       company: React.findDOMNode(this.refs.company).value.trim(),
       initial_price: React.findDOMNode(this.refs.initial_price).value.trim(),
-      acquisition_price: React.findDOMNode(this.refs.acquisition_price).value.trim(),
+      acquisition_price: React.findDOMNode(this.refs.acquisition_price).value.trim()
     };
-    console.log(newAcquistion);
+
+    $.ajax({
+      url: '/admin/acquisitions',
+      type: 'POST',
+      data: {
+        acquisition: newAcquistion
+      },
+      success: function() {
+        window.location.href = '/admin';
+      },
+      error: function(xhr, status, err) {
+        console.error(status, err.toString());
+      }
+    });
   },
 
 
@@ -55,6 +68,7 @@ var NewAcquisitionForm = React.createClass({
             type='text'
             className='form-control'
             ref={field.inputValue}
+            required='true'
           />
         </div>
       );
