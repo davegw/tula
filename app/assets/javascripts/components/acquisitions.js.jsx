@@ -31,7 +31,9 @@ var AcquisitionYear = React.createClass({
 
 var AcquisitionDeleteButton = React.createClass({
   clickHandler: function() {
-    this.props.handleDelete(this.props.id, this.props.year);
+    if (window.confirm('Are you sure you want to delete this Acquisition?')) {
+      this.props.handleDelete(this.props.id, this.props.year);
+    }
   },
 
   render: function() {
