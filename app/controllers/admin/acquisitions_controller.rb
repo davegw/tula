@@ -22,7 +22,7 @@ class Admin::AcquisitionsController < ApplicationController
   def update
     acquisition = Acquisition.find(params[:id])
     data = params[:acquisition]
-    data[:return] = return_calculator(data[:acquisition_price], data[:initial_price])
+    data[:return] = return_calculator(data[:initial_price], data[:acquisition_price])
     acquisition.update_attributes(data)
 
     render :json => data
