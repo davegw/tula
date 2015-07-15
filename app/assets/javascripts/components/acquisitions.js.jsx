@@ -15,7 +15,7 @@ var AcquisitionCreateButton = React.createClass({
   render: function() {
     return (
       <div className='text-center'>
-        <a className='btn btn-success' href='/admin/new'>
+        <a className='btn btn-success' href='/admin/acquisitions/new'>
           Add New Acquisition
         </a>
       </div>
@@ -121,7 +121,7 @@ var AcquisitionRow = React.createClass({
 
   updateAcquisition: function(updatedAcquisition) {
     $.ajax({
-      url: '/admin/acquisitions/' + this.props.id,
+      url: '/api/admin/acquisitions/' + this.props.id,
       type: 'PUT',
       data: {
         acquisition: updatedAcquisition
@@ -241,7 +241,7 @@ var AcquisitionContainer = React.createClass({
 
   getAcquisitionData: function() {
     $.ajax({
-      url: '/admin/acquisitions',
+      url: '/api/admin/acquisitions',
       dataType: 'json',
       type: 'GET',
       success: function(data) {
@@ -265,7 +265,7 @@ var AcquisitionContainer = React.createClass({
     });
 
     $.ajax({
-      url: '/admin/acquisitions/' + id,
+      url: '/api/admin/acquisitions/' + id,
       dataType: 'json',
       type: 'DELETE',
       error: function(xhr, status, err) {

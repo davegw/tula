@@ -1,23 +1,4 @@
-.row
-  %h1 Create New Acquisition
+- @body_id = 'admin_acquisitions_new'
 
-.row
-  .col-md-6
-    = form_for @acquisition, url: admin_acquisitions_path do |f|
-      .form-group
-        = f.label :year
-        = f.select :year, options_for_select(@select_options), :class => 'form-control'
-
-      .form-group
-        = f.label :company
-        = f.text_field :company, :class => 'form-control'
-
-      .form-group
-        = f.label 'Price at beginning of Year'
-        = f.text_field :initial_price, :class => 'form-control'
-
-      .form-group
-        = f.label 'Buy Out Price'
-        = f.text_field :acquisition_price, :class => 'form-control'
-
-      = f.submit 'Add New Acquisition', :class => 'btn btn-success'
+#admin-acquisitions-new-container
+= javascript_include_tag 'components/new_acquisitions'

@@ -62,11 +62,15 @@ Tula::Application.routes.draw do
   match '/investment-prospectus' => 'home#prospectus', :as => :prospectus
   match '/contact' => 'home#contact', :as => :contact
   match '/terms' => 'home#terms', :as => :terms
-  get '/admin' => 'admin#index', :as => :admin
-  get '/admin/new' => 'admin#new', :as => :admin_new
 
   namespace :admin do
     resources :acquisitions
+  end
+
+  namespace :api do
+    namespace :admin do
+      resources :acquisitions
+    end
   end
 
   ComfyBlog::Routing.admin

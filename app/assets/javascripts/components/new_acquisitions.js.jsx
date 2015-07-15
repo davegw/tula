@@ -39,13 +39,13 @@ var NewAcquisitionForm = React.createClass({
     };
 
     $.ajax({
-      url: '/admin/acquisitions',
+      url: '/api/admin/acquisitions',
       type: 'POST',
       data: {
         acquisition: newAcquistion
       },
       success: function() {
-        window.location.href = '/admin';
+        window.location.href = '/admin/acquisitions';
       },
       error: function(xhr, status, err) {
         console.error(status, err.toString());
@@ -108,13 +108,13 @@ var NewAcquisition = React.createClass({
 
   getAcquisitionData: function() {
     $.ajax({
-      url: '/admin/acquisitions/new',
+      url: '/api/admin/acquisitions/new',
       dataType: 'json',
       type: 'GET',
       success: function(data) {
         this.setState({
           yearOptions: data.year_options,
-          year: data.year_options[0]
+          year: data.current_year
         });
       }.bind(this),
       error: function(xhr, status, err) {
