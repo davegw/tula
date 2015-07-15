@@ -44,3 +44,9 @@ gem 'comfy_blog', git: 'git://github.com/joahking/comfy-blog.git', branch: 'feat
 
 # To use debugger
 # gem 'debugger'
+
+group :development do
+  gem 'byebug'
+  gem 'pry'
+  gem 'rspec'
+end
