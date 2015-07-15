@@ -38,6 +38,8 @@ class Api::Admin::AcquisitionsController < ApplicationController
     initial_price                 = params[:acquisition][:initial_price]
     acquisition_price             = params[:acquisition][:acquisition_price]
     params[:acquisition][:return] = return_calculator(initial_price, acquisition_price)
+    params[:acquisition][:company].capitalize!
+
     Acquisition.create(params[:acquisition])
 
     render :json => { :success => true }
