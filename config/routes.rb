@@ -63,6 +63,8 @@ Tula::Application.routes.draw do
   match '/contact' => 'home#contact', :as => :contact
   match '/terms' => 'home#terms', :as => :terms
   match '/admin' => 'admin#index', :as => :admin
+  post  '/users' => 'users#create'
+  get   '/users/new' => 'users#new'
 
   namespace :admin do
     resources :acquisitions

@@ -1,0 +1,33 @@
+- body_id = 'sign-up'
+%title
+  Register | Caption Monster
+
+.container
+  .row
+    .col-md-4
+      %h1
+        Sign Up
+      - if @user.errors.any?
+        .error-messages
+          %h3 Could not register new user:
+          %ul.list-group
+            - for message in @user.errors.full_messages
+              %li.list-group-item.list-group-item-danger
+                = message
+  .row
+    .col-md-3
+      = form_for @user, :url => users_path do |u|
+        %p.form-group
+          = u.label :name, "Name:", :class => "control-label"
+          = u.text_field :name, :class => "form-control"
+        %p.form-group
+          = u.label :email, "Email:", :class => "control-label"
+          = u.email_field :email, :class => "form-control"
+        %p.form-group
+          = u.label :password, "Password:", :class => "control-label"
+          = u.password_field :password, :class => "form-control"
+        %p.form-group
+          = u.label :password_confirmation, "Confirm:", :class => "control-label"
+          = u.password_field :password_confirmation, :class => "form-control"
+        %p
+          = u.submit "Register", :class => "btn btn-primary"

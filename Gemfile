@@ -31,7 +31,7 @@ gem 'comfortable_mexican_sofa', '~> 1.8.2'
 gem 'comfy_blog', git: 'git://github.com/joahking/comfy-blog.git', branch: 'feature/1-8-1'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0', require: 'bcrypt'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -48,5 +48,5 @@ gem 'comfy_blog', git: 'git://github.com/joahking/comfy-blog.git', branch: 'feat
 group :development do
   gem 'byebug'
   gem 'pry'
-  gem 'rspec'
+  gem 'rspec-rails'
 end
