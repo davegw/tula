@@ -1,6 +1,6 @@
 - body_id = 'sign-up'
 %title
-  Register | Caption Monster
+  Register | TULA
 
 .container
   .row
@@ -19,15 +19,15 @@
       = form_for @user, :url => users_path do |u|
         %p.form-group
           = u.label :name, "Name:", :class => "control-label"
-          = u.text_field :name, :class => "form-control"
+          = u.text_field :name, :class => "form-control", :required => true
         %p.form-group
           = u.label :email, "Email:", :class => "control-label"
-          = u.email_field :email, :class => "form-control"
+          = u.email_field :email, :class => "form-control", :required => true
         %p.form-group
           = u.label :password, "Password:", :class => "control-label"
-          = u.password_field :password, :class => "form-control"
+          = u.password_field :password, :class => "form-control", :required => true
         %p.form-group
           = u.label :password_confirmation, "Confirm:", :class => "control-label"
-          = u.password_field :password_confirmation, :class => "form-control"
+          = u.password_field :password_confirmation, :class => "form-control", :required => true
         %p
           = u.submit "Register", :class => "btn btn-primary"

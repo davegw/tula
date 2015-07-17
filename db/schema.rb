@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131025021831) do
+ActiveRecord::Schema.define(:version => 20150717020648) do
 
   create_table "acquisitions", :force => true do |t|
     t.integer  "year"
@@ -195,6 +195,15 @@ ActiveRecord::Schema.define(:version => 20131025021831) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.decimal  "sp500_return"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "password_hash"
+    t.datetime "registered_at"
   end
 
 end
