@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150718022946) do
+ActiveRecord::Schema.define(:version => 20150718024600) do
 
   create_table "acquisitions", :force => true do |t|
     t.integer  "year"
@@ -205,6 +205,7 @@ ActiveRecord::Schema.define(:version => 20150718022946) do
     t.string   "password_hash"
     t.datetime "registered_at"
     t.boolean  "admin"
+    t.datetime "last_login"
   end
 
 end
