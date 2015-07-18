@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password_hash, :password, :password_confirmation, :registered_at
+  attr_accessible :email, :name, :password_hash, :password, :password_confirmation, :registered_at, :admin
 
   validates_confirmation_of :password
-  validates_presence_of :email, :name, :password, :password_confirmation
+  validates_presence_of :email, :name, :password
   validates_uniqueness_of :email
 
   def encrypt_password(new_password)
@@ -24,5 +24,9 @@ class User < ActiveRecord::Base
 
   def authenticate(password)
     check_password?(password)
+  end
+
+  def admin?
+    !!admin
   end
 end

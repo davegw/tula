@@ -7,6 +7,10 @@
           Investment Group
     #header_login
       - if current_user
+        - if @current_user.admin?
+          = link_to 'Admin', admin_acquisitions_path
+          %span
+            &nbsp|&nbsp
         = link_to 'Logout', users_logout_path
       - else
         = link_to 'Register', users_new_path
