@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
   def password=(new_password)
     encrypt_password(new_password)
   end
+
+  def authenticate(password)
+    check_password?(password)
+  end
 end

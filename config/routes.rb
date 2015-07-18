@@ -65,6 +65,9 @@ Tula::Application.routes.draw do
   match '/admin' => 'admin#index', :as => :admin
   post  '/users' => 'users#create'
   get   '/users/new' => 'users#new'
+  get   '/users/login' => 'users#login', :as => :users_login
+  post  '/users/login' => 'users#authenticate', :as => :users_authenticate
+  get   '/users/logout' => 'users#logout', :as => :users_logout
 
   namespace :admin do
     resources :acquisitions
