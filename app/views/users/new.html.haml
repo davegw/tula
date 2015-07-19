@@ -2,7 +2,7 @@
 %title
   Register | TULA
 
-.container
+#signup_container
   .row
     .col-md-4
       %h1
@@ -14,20 +14,25 @@
             - for message in @user.errors.full_messages
               %li.list-group-item.list-group-item-danger
                 = message
+
   .row
     .col-md-3
       = form_for @user, :url => users_path do |u|
         %p.form-group
-          = u.label :name, "Name:", :class => "control-label"
-          = u.text_field :name, :class => "form-control", :required => true
+          = u.label :name, 'Name:', :class => 'control-label'
+          = u.text_field :name, :class => 'form-control', :required => true
         %p.form-group
-          = u.label :email, "Email:", :class => "control-label"
-          = u.email_field :email, :class => "form-control", :required => true
+          = u.label :email, 'Email:', :class => 'control-label'
+          = u.email_field :email, :class => 'form-control', :required => true
         %p.form-group
-          = u.label :password, "Password:", :class => "control-label"
-          = u.password_field :password, :class => "form-control", :required => true
+          = u.label :password, 'Password:', :class => 'control-label'
+          = u.password_field :password, :class => 'form-control', :required => true
         %p.form-group
-          = u.label :password_confirmation, "Confirm:", :class => "control-label"
-          = u.password_field :password_confirmation, :class => "form-control", :required => true
+          = u.label :password_confirmation, 'Confirm:', :class => 'control-label'
+          = u.password_field :password_confirmation, :class => 'form-control', :required => true
         %p
-          = u.submit "Register", :class => "btn btn-primary"
+          = u.submit 'Register', :class => 'btn btn-primary'
+
+  .row
+    %span Already registered?
+    = link_to 'Login!', users_login_path

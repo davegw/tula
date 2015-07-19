@@ -595,3 +595,10 @@ a:visited {
     margin: 0;
   }
 }
+
+#signup_container,
+#login_container {
+  a {
+    color: $dark_orange;
+  }
+}

@@ -2,12 +2,12 @@
 %title
   Log-In | TULA
 
-- if flash[:alert]
-  .alert.alert-warning#log-in-alert-notice
-    %strong
-      = flash[:alert]
+#login_container
+  - if flash[:alert]
+    .alert.alert-warning#log-in-alert-notice
+      %strong
+        = flash[:alert]
 
-.container
   .row
     .col-md-4
       %h1
@@ -17,10 +17,14 @@
     .col-md-3
       = form_tag users_authenticate_path do
         %p.form-group
-          = label_tag :email, "Email:", :class => "control-label"
-          = email_field_tag :email, nil, :class => "form-control", :required => true
+          = label_tag :email, 'Email:', :class => 'control-label'
+          = email_field_tag :email, nil, :class => 'form-control', :required => true
         %p.form-group
-          = label_tag :password, "Password:", :class => "control-label"
-          = password_field_tag :password, nil, :class => "form-control", :required => true
+          = label_tag :password, 'Password:', :class => 'control-label'
+          = password_field_tag :password, nil, :class => 'form-control', :required => true
         %p
-          = submit_tag "Log-In", :class => "btn btn-primary"
+          = submit_tag 'Log-In', :class => 'btn btn-primary'
+
+  .row
+    %span Don't have an account?
+    = link_to 'Register!', users_new_path
