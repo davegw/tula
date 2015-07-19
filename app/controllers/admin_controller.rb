@@ -2,8 +2,6 @@ class AdminController < ApplicationController
   layout 'admin'
 
   def index
-  end
-
-  def new
+    @admin = current_user
   end
 end
