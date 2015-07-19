@@ -8,6 +8,8 @@ class Admin::AcquisitionsController < ApplicationController
   def new
   end
 
+  private
+
   def authenticate_user!
     return if current_user && current_user.admin?
 

@@ -83,7 +83,7 @@ var AcquisitionForm = React.createClass({
   render: function() {
     return (
       <tr>
-        <form action={'/admin/acquisitions/' + this.props.id + '/edit'}  method='PUT'>
+        <form>
           <td className='text-center'><input type='text' defaultValue={this.props.year} className='form-control text-center' ref='year'/></td>
           <td className='text-center'><input type='text' defaultValue={this.props.company} className='form-control text-center' ref='company'/></td>
           <td className='text-center'><input type='text' defaultValue={this.props.initialPrice} className='form-control text-center' ref='initialPrice'/></td>
