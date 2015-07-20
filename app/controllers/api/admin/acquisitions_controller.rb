@@ -14,11 +14,6 @@ class Api::Admin::AcquisitionsController < ApplicationController
     render :json => { :year_options => select_options, :current_year => current_year }
   end
 
-  def edit
-    @select_options = (2013..2015).map { |year| [year.to_s, year] }
-    @acquisition = Acquisition.find params[:id]
-  end
-
   def update
     acquisition = Acquisition.find(params[:id])
     data = params[:acquisition]

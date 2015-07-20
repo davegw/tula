@@ -197,7 +197,7 @@ var AcquisitionTable = React.createClass({
           <tr>
             <th className='text-center'>Acquisition Year</th>
             <th className='text-center'>Company</th>
-            <th className='text-center'>Price at 1/1/00</th>
+            <th className='text-center'>Price at 1/1/{this.props.year % 1000}</th>
             <th className='text-center'>Buy Out Price</th>
             <th className='text-center'>Return</th>
             <th className='text-center'></th>

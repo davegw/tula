@@ -3,8 +3,10 @@ class UsersController < ApplicationController
     params[:user][:email].downcase!
     params[:user][:registered_at] = Time.now
     @user = User.new(params[:user])
+    @user.last_login = Time.now
+
     if @user.save
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       redirect_to root_url
     else
       render 'new'
