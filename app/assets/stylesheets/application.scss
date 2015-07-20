@@ -67,6 +67,20 @@ a:visited {
 
 #header {
   height: 140px;
+
+  #header_logo {
+    display: inline-block;
+  }
+
+  #header_login {
+    color: #BCBBBB;
+    float: right;
+    margin: 20px;
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
   #header_title {
     padding-top: 26px;
     height: 60px;
@@ -579,5 +593,12 @@ a:visited {
 #terms_container {
   h1 {
     margin: 0;
+  }
+}
+
+#signup_container,
+#login_container {
+  a {
+    color: $dark_orange;
   }
 }

@@ -1,0 +1,29 @@
+- @body_id = 'admin_index'
+
+#admin-index-container
+  .row
+    .col-sm-12
+      %h1 Hi #{@admin.name}!
+  .row
+    .col-sm-5
+      %h4 Admin Account Info:
+      %dl
+        .detail-section
+          %dt Email:
+          %dd
+            = @admin.email
+        .detail-section
+          %dt Last Login:
+          %dd
+            = local_time_format(@admin.last_login)
+        .detail-section
+          %dt Last Update:
+          %dd
+            = local_time_format(@last_acquisition.updated_at)
+    .col-sm-7
+      %h4 Actions:
+      %ul.list-unstyled
+        %li.list-item
+          = link_to 'Update Acquisitions', admin_acquisitions_path
+        %li.list-item
+          = link_to 'Back to regular website', root_url

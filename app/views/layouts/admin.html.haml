@@ -1,0 +1,35 @@
+!!! 5
+%html
+  %head
+    -# Meta tags
+    = render 'layouts/metas'
+
+    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'
+    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/react/0.13.1/react.js'
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'admin'
+    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'
+    = stylesheet_link_tag 'admin'
+    = yield :javascript_includes
+    = csrf_meta_tags
+
+  %body{:id => @body_id, :class => @body_class}
+    #all_content
+      #container
+        %nav.navbar.navbar-default
+          .container-fluid
+            .navbar-header
+              %a.navbar-brand{:href => admin_path} TULA Admin
+            .collapse.navbar-collapse
+              %ul.nav.navbar-nav
+                %li
+                  = link_to 'Acquisitions', admin_acquisitions_path
+              %ul.nav.navbar-nav.navbar-right
+                %li
+                  = link_to 'Back to TULA', home_path
+                %li
+                  = link_to 'Log Out', users_logout_path
+        #main
+          .container-fluid
+            = yield

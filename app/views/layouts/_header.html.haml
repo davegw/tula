@@ -1,9 +1,23 @@
 #header
   #header_title
-    = link_to root_path do
-      %h1 
-        %span TULA
-        Investment Group
+    #header_logo
+      = link_to root_path do
+        %h1
+          %span TULA
+          Investment Group
+    #header_login
+      - if current_user
+        - if @current_user.admin?
+          = link_to 'Admin', admin_path
+          %span
+            &nbsp|&nbsp
+        = link_to 'Logout', users_logout_path
+      - else
+        = link_to 'Register', users_new_path
+        %span
+          &nbsp|&nbsp
+        = link_to 'Login', users_login_path
+
   #nav_bar
     %ul
       = link_to home_path, :class => "#{active_class('home')}" do

@@ -18,6 +18,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'react-rails', '~> 1.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -30,7 +31,7 @@ gem 'comfortable_mexican_sofa', '~> 1.8.2'
 gem 'comfy_blog', git: 'git://github.com/joahking/comfy-blog.git', branch: 'feature/1-8-1'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0', require: 'bcrypt'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -43,3 +44,9 @@ gem 'comfy_blog', git: 'git://github.com/joahking/comfy-blog.git', branch: 'feat
 
 # To use debugger
 # gem 'debugger'
+
+group :development do
+  gem 'byebug'
+  gem 'pry'
+  gem 'rspec-rails'
+end

@@ -5,4 +5,8 @@ class Acquisition < ActiveRecord::Base
     self.return = (acquisition_price - initial_price)/initial_price
     self.save
   end
+
+  def self.last_updated
+    self.order('updated_at').last
+  end
 end
