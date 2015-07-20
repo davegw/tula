@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150718024600) do
+ActiveRecord::Schema.define(:version => 20150720171737) do
 
   create_table "acquisitions", :force => true do |t|
     t.integer  "year"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20150718024600) do
     t.datetime "updated_at",        :null => false
     t.string   "company"
   end
+
+  add_index "acquisitions", ["updated_at"], :name => "index_acquisitions_on_updated_at"
 
   create_table "blog_comments", :force => true do |t|
     t.integer  "post_id",                         :null => false
