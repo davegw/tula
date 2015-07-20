@@ -3,5 +3,6 @@ class AdminController < ApplicationController
 
   def index
     @admin = current_user
+    @last_acquisition = Acquisition.last_updated
   end
 end

@@ -8,12 +8,18 @@
     .col-sm-5
       %h4 Admin Account Info:
       %dl
-        %dt Email:
-        %dd
-          = @admin.email
-        %dt Last Login:
-        %dd
-          = @admin.last_login.strftime('%b %d, %Y: %I:%M%p')
+        .detail-section
+          %dt Email:
+          %dd
+            = @admin.email
+        .detail-section
+          %dt Last Login:
+          %dd
+            = @admin.last_login.strftime('%b %d, %Y: %I:%M%p')
+        .detail-section
+          %dt Last Update:
+          %dd
+            = @last_acquisition.updated_at.strftime('%b %d, %Y: %I:%M%p')
     .col-sm-7
       %h4 Actions:
       %ul.list-unstyled
