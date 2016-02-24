@@ -8,8 +8,8 @@
       %h3
         Year:
         %select
-          - @years.reverse.each do |year|
-            %option{:value => year, :selected => @years.last == year}
+          - @years.each do |year|
+            %option{:value => year, :selected => @years.first == year}
               = year
   %h1
     %span#selected_year
