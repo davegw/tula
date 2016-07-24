@@ -17,6 +17,7 @@ class HomeController < ApplicationController
   def why
     @initial_investment = INITIAL_INVESTMENT
     @historic_returns = HistoricReturn.where('year >= ?', 1994).order(:year)
+    @last_update = @historic_returns.last
   end
 
   def acquisitions
