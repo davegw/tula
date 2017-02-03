@@ -32,12 +32,10 @@ $(function() {
   $(window).scroll(function () {
     var navbar = $('#prospectus_container .left_column');
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    if(scrollTop > maxScroll && !navbar.is('.navbar_fixed')) {
-      console.log('go floated');
+    if (scrollTop > maxScroll && !navbar.is('.navbar_fixed')) {
       navbar.addClass('navbar_fixed');
     }
-    else if(scrollTop < maxScroll && navbar.is('.navbar_fixed')) {
-      console.log('return to normal');
+    else if (scrollTop < maxScroll && navbar.is('.navbar_fixed')) {
       navbar.removeClass('navbar_fixed');
     }
   });
