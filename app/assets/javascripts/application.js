@@ -111,7 +111,16 @@ $(function() {
         }
       ],
     };
+
     var initialInvestment = tulaReturn[0];
+    var peakInvestment = Math.max.apply(null, [
+        Math.max.apply(null, tulaReturn),
+        Math.max.apply(null, sp500Return),
+    ]);
+    // Scale is in 100,000 increments. Calculate the number of steps to get
+    // to peak and subtract one since the graph start at 100,000.
+    var scaleSteps = Math.ceil(peakInvestment / 100000) - 1;
+
     // Scale gets whacky when y-axis value is over 110,000 for some reason.
     // Use scaleOverride to manually set scale on the y-axis.
     var options = {
@@ -119,7 +128,7 @@ $(function() {
       showLegend:      true,
       bezierCurve:     true,
       scaleOverride:   true,
-      scaleSteps:      12,
+      scaleSteps:      scaleSteps,
       scaleStepWidth:  initialInvestment,
       scaleStartValue: initialInvestment
     };
