@@ -12,3 +12,6 @@ This is the company website for TULA Investment Group. TULA is a Registered Inve
 1. Push to origin: `git push origin master`
 1. Push to heroku: `git push heroku master`
 1. Accessing production console: `heroku run rails c`
+
+### Upgrading notes:
+Running on ruby v2.4.5, which is the oldest version of ruby supported by heroku. This version of ruby has compatibility issues with rails v3, which is why the [`support_ruby_v2_4.rb`](./config/initializers/support_ruby_v2_4.rb) initializer is needed. When upgrading to rails 4 or 5, that initializer should be able to be deleted.
