@@ -16,10 +16,11 @@
           %dt Last Login:
           %dd
             = local_time_format(@admin.last_login)
-        .detail-section
-          %dt Last Update:
-          %dd
-            = local_time_format(@last_acquisition.updated_at)
+        - if @last_acquisition
+          .detail-section
+            %dt Last Update:
+            %dd
+              = local_time_format(@last_acquisition.updated_at)
     .col-sm-7
       %h4 Actions:
       %ul.list-unstyled
