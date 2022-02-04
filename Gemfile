@@ -8,6 +8,9 @@ gem 'haml'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Note: Need to install this gem by hand:
+# `gem install pg -v '0.18.1' -- --with-cflags="-Wno-error=implicit-function-declaration"`
+# source: https://stackoverflow.com/a/63583496
 gem 'pg'
 gem 'rake'
 gem 'test-unit'
