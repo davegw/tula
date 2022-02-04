@@ -31,6 +31,9 @@ gem 'comfortable_mexican_sofa', '~> 1.8.2'
 gem 'comfy_blog', git: 'git://github.com/joahking/comfy-blog.git', branch: 'feature/1-8-1'
 
 # To use ActiveModel has_secure_password
+# Note: Need to install this gem by hand:
+# `gem install bcrypt-ruby -v '3.0.1' -- --with-cflags=-Wno-implicit-function-declaration`
+# source: https://stackoverflow.com/a/68928716
 gem 'bcrypt-ruby', '~> 3.0.0', require: 'bcrypt'
 
 # To use Jbuilder templates for JSON
