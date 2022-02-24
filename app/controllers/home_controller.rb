@@ -16,13 +16,17 @@ class HomeController < ApplicationController
 
   def why
     @initial_investment = INITIAL_INVESTMENT
-    @historic_returns = HistoricReturn.where('year >= ?', 1994).order(:year)
+    historic_returns_json = File.read './historic_returns_data.json'
+    raw_historic_returns = JSON.parse historic_returns_json, :symbolize_names => true
+    @historic_returns = raw_historic_returns.sort_by { |historic_return| historic_return[:year] }
     @last_update = @historic_returns.last
   end
 
   def acquisitions
-    @acquisitions = Acquisition.all.sort_by(&:id).reduce({}) do |acq_hash, acquisition|
-      year = acquisition.year
+    acquisitions_json = File.read './acquisitions_data.json'
+    raw_acquisitions = JSON.parse acquisitions_json, :symbolize_names => true
+    @acquisitions = raw_acquisitions.sort_by { |acq| acq[:id] }.reduce({}) do |acq_hash, acquisition|
+      year = acquisition[:year]
       acq_hash[year] ||= []
       acq_hash[year].push(acquisition)
       acq_hash
