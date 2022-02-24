@@ -20,21 +20,24 @@
         %th Year
         %th S&P 500
         %th TULA
-      - @historic_returns.each do |year|
+      - @historic_returns.each do |historic_return|
         %tr
           %td
-            #{year.year}
+            #{historic_return[:year]}
           %td
-            #{(year.sp500_return*100).to_i}%
+            #{(historic_return[:sp500_return]*100).to_i}%
           %td
-            #{(year.tula_return*100).to_i}%
+            #{(historic_return[:tula_return]*100).to_i}%
       %tr
+        - total_years = @historic_returns.count
         %td
-          #{@historic_returns.count} Year Avg
+          #{total_years} Year Avg
         %td
-          #{(@historic_returns.average(:sp500_return)*100).round(1)}%
+          - sp500_sum = @historic_returns.inject(0.0) { |result, el| result + el[:sp500_return] }
+          #{(sp500_sum / total_years * 100).round(1)}%
         %td
-          #{(@historic_returns.average(:tula_return)*100).round(1)}%
+          - tula_sum = @historic_returns.inject(0.0) { |result, el| result + el[:tula_return] }
+          #{(tula_sum / total_years * 100).round(1)}%
 
   #return_dollar_table_container
     %p
@@ -47,24 +50,24 @@
       - sp500 = tula = @initial_investment
       %tr
         %td
-          #{@historic_returns[0].year-1}
+          #{@historic_returns[0][:year]-1}
         %td
           #{number_to_currency(sp500, :unit => "$", :precision => 0)}
         %td
           #{number_to_currency(tula, :unit => "$", :precision => 0)}
-      - @historic_returns.each do |year|
+      - @historic_returns.each do |historic_return|
         %tr
           %td
-            #{year.year}
+            #{historic_return[:year]}
           %td
-            - sp500 *= (year.sp500_return+1)
+            - sp500 *= (historic_return[:sp500_return]+1)
             #{number_to_currency(sp500, :unit => "$", :precision => 0)}
           %td
-            - tula *= (year.tula_return+1)
+            - tula *= (historic_return[:tula_return]+1)
             #{number_to_currency(tula, :unit => "$", :precision => 0)}
 
   #return_disclosure
     %p.why_dislosure
       %span
         *Note:
-      TULA's historic return figures are derived from TULA's largest and oldest client and are representative of TULA's performance in general. The figures are gross numbers without any deduction for management fees. #{@last_update.year} return last updated #{@last_update.updated_at.strftime('%B %-d, %Y')}.
+      TULA's historic return figures are derived from TULA's largest and oldest client and are representative of TULA's performance in general. The figures are gross numbers without any deduction for management fees. #{@last_update[:year]} return last updated #{Date.strptime(@last_update[:updated_at]).strftime('%B %-d, %Y')}.

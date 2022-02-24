@@ -28,13 +28,13 @@
         - @acquisitions[year].each do |acquisition|
           %tr
             %td
-              #{acquisition.company}
+              #{acquisition[:company]}
             %td
-              #{number_to_currency(acquisition.initial_price, :unit => "$", :precision => 2)}
+              #{number_to_currency(acquisition[:initial_price], :unit => "$", :precision => 2)}
             %td
-              #{number_to_currency(acquisition.acquisition_price, :unit => "$", :precision => 2)}
+              #{number_to_currency(acquisition[:acquisition_price], :unit => "$", :precision => 2)}
             %td
-              #{((acquisition.return)*100).round(1)}%
+              #{((acquisition[:return])*100).round(1)}%
       #acquisition_notes
         %p.why_dislosure
           = @disclosures[year]
